@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/ruta', function () {
+    return view('ruta');
+});
+
+Route::get('/ruta/1', function () {
+    return view('organizator');
+});

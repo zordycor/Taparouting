@@ -55,50 +55,77 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
 
       <div class="main-container">
-            <div class="welcome">
-              <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="d-block img-fluid" src="http://silviaquirosblog.com/wp-content/uploads/2014/11/TapasenBarcelona.jpg" alt="First slide">
+        <div class="row">
+          <div class="welcome">
+              <form>
+                <div class="form-group">
+                  <h4>
+                    ¡Regístrate y empieza a votar tus tapas favoritas!
+                  </h4>
+                  <input type="text" class="form-control" id="usuario" placeholder="Usuario">
                 </div>
-                <div class="carousel-item">
-                  <img class="d-block img-fluid" src="http://blog.pepebar.com/wp-content/uploads/2017/02/tapas-y-pinchos-bar.jpg" alt="Second slide">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Correo electrónico">
                 </div>
-                <div class="carousel-item">
-                  <img class="d-block img-fluid" src="https://img.grouponcdn.com/iam/kYEnGV2g2ZEcxj3pRfav/UT-5000x3000/v1/c700x420.jpg" alt="Third slide">
+                <div class="form-group">
+                  <input type="password" class="form-control" id="password1" placeholder="Contraseña">
                 </div>
-              </div>
-            </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="password2" placeholder="Repetir contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+              </form>
           </div>
+          <div class="welcome calendarCont">
             <ul class="calendar">
                 <li>18/05 Ruta de la tapa <strong>Benetusser</strong></li>
                 <li>23/07 Ruta de la tapa <strong>Puzol</strong></li>
             </ul>
+          </div>
         </div>
       </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div>
+      <div class="card-columns">
+      <div class="card">
+        <img class="card-img-top" src="/img/CasaBayarri.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Fruta de la pasión</h5>
+          <p class="card-text">Bar Manolo</p>
         </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="/img/Laiguafresca.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Postre en almibar</h5>
+          <p class="card-text">Bar Selecto</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="/img/Sambori.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="/img/Sambori.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="/img/Sambori.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+      </div>
+    </div>
 
         <hr>
 
-    <footer class="container">
+    <footer class="cont">
       <p>© Taparouting 2017-2018</p>
     </footer>
     
