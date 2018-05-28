@@ -16,13 +16,18 @@
  }
 
  .welcome{
-	 width: 47%;
+	 float: left;
 	 margin: 1rem;
  }
 
  .row{
  	margin-right: 0;
  	margin-left: 0;
+ }
+
+ .calendarCont{
+ 	float: right;
+ 	margin: 1rem;
  }
 
  .calendar{
@@ -53,10 +58,16 @@
         margin-top: 1rem;
        }
 
+.littleMap{
+	position: absolute;
+	right: 3rem;
+	width: 25%;
+}
 
 
 .form-group{
 	margin-right: 1rem;
+	width: 70%;
 }
 
 .tab-pane{
@@ -71,6 +82,10 @@
 	color: #495057;
     background-color: #b8bcbf;
     border-color: #b8bcbf #b8bcbf #b8bcbf;
+}
+
+.card-columns{
+	margin: 3rem;
 }
 
 .card-body.buttons{

@@ -22,3 +22,7 @@ Route::get('/ruta', function () {
 Route::get('/ruta/1', function () {
     return view('organizator');
 });
+
+Route::get('/ruta/2', function () {
+    return view('bar');
+});
