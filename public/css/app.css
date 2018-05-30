@@ -5,6 +5,16 @@
 	text-align: center;
 }
 
+.dropdown-menu{
+	min-width: 200px;
+	left: -60px;
+	padding-left: 1rem;
+}
+
+.form-group.form-login{
+	width: 90%;
+}
+
  .main-container{
 	 background-color: lightgray;
 	 width: 100%;

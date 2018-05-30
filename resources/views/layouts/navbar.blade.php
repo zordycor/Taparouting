@@ -20,6 +20,26 @@
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
         </form>
-        <button class="btn btn-outline-warning my-2 my-sm-0">Iniciar sesión</button>
+
+        <div class="btn-group">
+            <button 
+                class="btn btn-outline-warning dropdown-toggle my-2 my-sm-0" 
+                data-toggle="dropdown" 
+                id="login" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+                    Iniciar sesión
+            </button>
+
+            <form class="dropdown-menu" aria-labelledby="login">
+              <div class="form-group form-login">
+                <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="Email">
+              </div>
+              <div class="form-group form-login">
+                <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Contraseña">
+              </div>
+              <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            </form>
+        </div>
     </div>
 </nav>
