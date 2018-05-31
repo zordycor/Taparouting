@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/phpfirebase_sdk','FirebaseController@index');
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,6 +26,3 @@ Route::get('/ruta/1', function () {
 Route::get('/ruta/2', function () {
     return view('bar');
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

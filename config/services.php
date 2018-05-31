@@ -33,11 +33,6 @@ return [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
-    ],
-
-    'firebase' => [
-        'database_url' => env('FB_DATABASE', 'https://taparouting.firebaseio.com/'),
-        'secret' => env('FB_DATABASE_KEY', 'ja3MptOUMlSfUjyuPNDxQYozHBMlsKR3kFW42mgf'),
     ]
 
 ];
