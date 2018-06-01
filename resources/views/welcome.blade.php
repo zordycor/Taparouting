@@ -25,8 +25,11 @@
           </div>
           <div class="calendarCont">
             <ul class="calendar">
-                <li>18/05 Ruta de la tapa <strong>Benetusser</strong></li>
-                <li>23/07 Ruta de la tapa <strong>Puzol</strong></li>
+                @foreach($rutas as $ruta)
+                <li>
+                   <a href="/ruta"><strong>{{ date('d/m', strtotime($ruta->inicio)) }}</strong>  {{ $ruta->nombre }}</a>
+                </li>
+                @endforeach
             </ul>
           </div>
         </div>

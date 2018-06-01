@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $rutas = DB::table('rutas')->get();
+
+
+    return view('welcome', compact('rutas'));
 });
 
 Route::get('/ruta', function () {
@@ -26,3 +30,5 @@ Route::get('/ruta/1', function () {
 Route::get('/ruta/2', function () {
     return view('bar');
 });
+
+Route::resource('rutas', 'RutasController');
