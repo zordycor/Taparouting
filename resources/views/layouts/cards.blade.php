@@ -5,7 +5,9 @@
         <div class="card-body">
             <h5 class="card-title">Fruta de la pasión</h5>
             <p class="card-text">Bar Manolo</p>
+            <p style="color: darkgrey">Ruta de la tapa de Puzol</p>
         </div>
+        @include('layouts/solicitudesbtn')
     </div>
     <div class="card">
         <img class="card-img-top" src="/img/Laiguafresca.jpg" alt="Card image cap">

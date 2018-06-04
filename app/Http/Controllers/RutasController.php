@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ruta;
 
 class RutasController extends Controller
 {
@@ -13,7 +14,8 @@ class RutasController extends Controller
      */
     public function index()
     {
-        //
+        $rutas = Ruta::all();
+        return view('layouts.cards')->with('rutas', $rutas);
     }
 
     /**

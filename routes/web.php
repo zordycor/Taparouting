@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/ruta', function () {
+
+    $rutas = DB::table('rutas')->get();
     return view('ruta');
 });
 

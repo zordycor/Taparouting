@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md navbar-red navbar-light fixed-top">
-    <a class="navbar-brand" href="#">Taparouting</a>
+    <a class="navbar-brand" href="">Taparouting</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

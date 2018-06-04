@@ -3,24 +3,7 @@
 @section('main')
 
     <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMm2U7fxy_7eFagnOy9dFysRdF7SZPhxg&callback=initMap">
-    </script>
-
+    <div id="map_canvas"></div>
     <div class="cont">
     	<h2>
     	3ª Ruta de la Tapa de Puzol
@@ -44,5 +27,30 @@
 
     	@include('layouts.cards')
     </div>
+
+<script>
+    function initialize() {
+        var address = 'Zurich, Ch';
+
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+            'address': $rutas
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var Lat = results[0].geometry.location.lat();
+                var Lng = results[0].geometry.location.lng();
+                var myOptions = {
+                    zoom: 11,
+                    center: new google.maps.LatLng(Lat, Lng)
+                };
+                var map = new google.maps.Map(
+                    document.getElementById("map_canvas"), myOptions);
+            } else {
+                alert("Something got wrong " + status);
+            }
+        });
+    }
+    google.maps.event.addDomListener(window, "load", initialize);
+</script>
 
 @endsection

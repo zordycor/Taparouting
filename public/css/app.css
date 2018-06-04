@@ -62,7 +62,7 @@
 	 height: auto;
  }
 
- #map {
+ #map_canvas{
         height: 400px;
         width: 100%;
         margin-top: 1rem;
@@ -99,8 +99,7 @@
 }
 
 .card-body.buttons{
-	position: absolute;
-	bottom: 0;
+	position: relative;
 }
 
 .card-deck .card{

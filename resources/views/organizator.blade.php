@@ -19,7 +19,7 @@
               @include('layouts.config')
 		  </div>
 		  <div class="tab-pane fade" id="solicitudes" role="tabpanel" aria-labelledby="solicitudes-tab">
-              @include('layouts.solicitudes')
+              @include('layouts.cards')
           </div>
 		  <div class="tab-pane fade" id="activas" role="tabpanel" aria-labelledby="activas-tab">...</div>
 		</div>
