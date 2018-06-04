@@ -27,7 +27,7 @@
             <ul class="calendar">
                 @foreach($rutas as $ruta)
                 <li>
-                   <a href="/ruta"><strong>{{ date('d/m', strtotime($ruta->inicio)) }}</strong>  {{ $ruta->nombre }}</a>
+                   <a href="/ruta/{{ $ruta->localidad }}"><strong>{{ date('d/m', strtotime($ruta->inicio)) }}</strong>  {{ $ruta->nombre }}</a>
                 </li>
                 @endforeach
             </ul>

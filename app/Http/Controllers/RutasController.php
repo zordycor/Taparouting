@@ -15,7 +15,7 @@ class RutasController extends Controller
     public function index()
     {
         $rutas = Ruta::all();
-        return view('layouts.cards')->with('rutas', $rutas);
+        return view('welcome')->with('rutas', $rutas);
     }
 
     /**
@@ -47,7 +47,8 @@ class RutasController extends Controller
      */
     public function show($id)
     {
-        //
+        $ruta = Ruta::find($id);
+        return view('ruta')->with('ruta', $ruta);
     }
 
     /**

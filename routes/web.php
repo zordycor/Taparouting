@@ -13,15 +13,11 @@
 
 Route::get('/', function () {
 
-    $rutas = DB::table('rutas')->get();
-
-
-    return view('welcome', compact('rutas'));
+    return view('welcome');
 });
 
 Route::get('/ruta', function () {
 
-    $rutas = DB::table('rutas')->get();
     return view('ruta');
 });
 
@@ -32,5 +28,3 @@ Route::get('/ruta/1', function () {
 Route::get('/ruta/2', function () {
     return view('bar');
 });
-
-Route::resource('rutas', 'RutasController');
