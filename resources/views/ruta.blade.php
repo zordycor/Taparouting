@@ -30,7 +30,7 @@
 
 <script>
     function initialize() {
-        var address = 'Zurich, Ch';
+        var address = '{{ $ruta->localidad }}';
 
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({
