@@ -14,8 +14,7 @@ class RutasController extends Controller
      */
     public function index()
     {
-        $rutas = Ruta::all();
-        return view('welcome')->with('rutas', $rutas);
+
     }
 
     /**
@@ -47,8 +46,7 @@ class RutasController extends Controller
      */
     public function show($id)
     {
-        $ruta = Ruta::find($id);
-        return view('ruta')->with('ruta', $ruta);
+        return Ruta::find($id);
     }
 
     /**

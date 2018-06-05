@@ -12,13 +12,21 @@
 */
 
 Route::get('/', function () {
+    $rutas = DB::table('rutas')->get();
+    return view('welcome', compact('rutas'));
 
     return view('welcome');
+
 });
 
 Route::get('/ruta', function () {
 
     return view('ruta');
+});
+
+Route::get('/ruta/{localidad}', function ($localidad) {
+    $ruta = DB::table('rutas')->where('localidad',$localidad)->first();
+    return view('ruta',['ruta'=>$ruta]);
 });
 
 Route::get('/ruta/1', function () {
