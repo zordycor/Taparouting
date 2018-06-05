@@ -16,15 +16,16 @@ class CreateRutasTable extends Migration
         Schema::create('rutas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('localidad');
             $table->date('inicio');
             $table->date('fin');
             $table->string('price1');
             $table->string('price2');
             $table->string('price3');
-            $table->mediumText('description')->default('Descripción');
-            $table->string('navcolor')->default('#000000');
-            $table->string('textcolor')->default('#ffffff');
-            $table->string('img')->default('/img/CasaBayarri.jpg');
+            $table->mediumText('description');
+            $table->string('navcolor');
+            $table->string('textcolor');
+            $table->string('img');
 
             $table->timestamps();
         });
