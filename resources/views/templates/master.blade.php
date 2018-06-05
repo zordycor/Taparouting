@@ -3,7 +3,7 @@
 @include('layouts.head')
 <body>
 @include('layouts.navbar')
-
+@include('inc.messages')
 @section('main')
 @show
 

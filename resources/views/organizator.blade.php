@@ -11,7 +11,7 @@
 		    <a class="nav-link" id="solicitudes-tab" data-toggle="tab" href="#solicitudes" role="tab" aria-controls="solicitudes" aria-selected="false">Solicitudes</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" id="activas-tab" data-toggle="tab" href="#activas" role="tab" aria-controls="activas" aria-selected="false">Activas</a>
+		    <a class="nav-link" id="activas-tab" data-toggle="tab" href="#activas" role="tab" aria-controls="activas" aria-selected="false">Mi ruta</a>
 		  </li>
 		</ul>
 		<div class="tab-content" id="myTabContent">
@@ -21,7 +21,9 @@
 		  <div class="tab-pane fade" id="solicitudes" role="tabpanel" aria-labelledby="solicitudes-tab">
               @include('layouts.cards')
           </div>
-		  <div class="tab-pane fade" id="activas" role="tabpanel" aria-labelledby="activas-tab">...</div>
+		  <div class="tab-pane fade" id="activas" role="tabpanel" aria-labelledby="activas-tab">
+		  	@include('ruta')
+		  </div>
 		</div>
     </div>
 

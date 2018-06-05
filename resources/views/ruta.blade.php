@@ -7,7 +7,11 @@
     	<h2>
     	{{ $ruta->nombre }}
     	</h2>
-    	<h4>Del 15 al 22 de Julio</h4>
+    	<h4>Del 
+            {{ date('d', strtotime($ruta->inicio)) }} al
+            {{ date('d', strtotime($ruta->fin)) }} de
+            {{ date('M', strtotime($ruta->inicio)) }}
+        </h4>
     	<hr>
     	<div class="row">
     		<div class="col-md-4">

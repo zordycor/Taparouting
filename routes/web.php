@@ -15,13 +15,6 @@ Route::get('/', function () {
     $rutas = DB::table('rutas')->get();
     return view('welcome', compact('rutas'));
 
-    return view('welcome');
-
-});
-
-Route::get('/ruta', function () {
-
-    return view('ruta');
 });
 
 Route::get('/ruta/{localidad}', function ($localidad) {
@@ -29,10 +22,12 @@ Route::get('/ruta/{localidad}', function ($localidad) {
     return view('ruta',['ruta'=>$ruta]);
 });
 
-Route::get('/ruta/1', function () {
-    return view('organizator');
+Route::get('/ruta/1', function ($localidad) {
+	$ruta = DB::table('rutas')->where('localidad',$localidad)->first();
+    return view('organizator',['ruta'=>$ruta]);
 });
 
-Route::get('/ruta/2', function () {
-    return view('bar');
+Route::get('/ruta/tapa/{nombre}', function ($id) {
+	$tapa = DB::table('tapas')->where('id',$id)->first();
+    return view('bar',['tapa'=>$tapa]);
 });
