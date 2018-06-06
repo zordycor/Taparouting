@@ -24,6 +24,9 @@
     		Tercer Premio: {{ $ruta->price3 }}€
     		</div>
     	</div>
+        <div class="logo">
+            <img class="logoimg" src="/img/{{$ruta->img}}">
+        </div>
     	<div class="description">
             {{ $ruta->description }}
         </div>
@@ -48,6 +51,12 @@
                 };
                 var map = new google.maps.Map(
                     document.getElementById("map_canvas"), myOptions);
+                
+                var marker = new google.maps.Marker({
+                    position: center,
+                    map: map,
+                    title: 'Hello World!'
+                });
             } else {
                 alert("Something got wrong " + status);
             }
