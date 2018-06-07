@@ -22,7 +22,7 @@
               @include('layouts.cards')
           </div>
 		  <div class="tab-pane fade" id="activas" role="tabpanel" aria-labelledby="activas-tab">
-		  	@include('ruta')
+		  	@include('layouts.ruta')
 		  </div>
 		</div>
     </div>
