@@ -1,5 +1,16 @@
 
 <div class="card-columns">
+    {{--@foreach($tapas as $tapa)
+        <div class="card">
+            <img class="card-img-top" src="/img/{{$tapa->img}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{$tapa->nombre}}</h5>
+                <p class="card-text">{{$tapa->bar}}</p>
+                <p style="color: grey">{{$tapa->ruta}}</p>
+            </div>
+        </div>
+    @endforeach--}}
+
     <div class="card">
         <img class="card-img-top" src="/img/CasaBayarri.jpg" alt="Card image cap">
         <div class="card-body">
@@ -9,13 +20,7 @@
         </div>
         @include('layouts/solicitudesbtn')
     </div>
-    <div class="card">
-        <img class="card-img-top" src="/img/Laiguafresca.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Postre en almibar</h5>
-            <p class="card-text">Bar Selecto</p>
-        </div>
-    </div>
+    
     <div class="card">
         <img class="card-img-top" src="/img/Sambori.jpg" alt="Card image cap">
         <div class="card-body">

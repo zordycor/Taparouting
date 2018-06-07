@@ -22,18 +22,26 @@ Route::get('/ruta/{localidad}', function ($localidad) {
     return view('organizator',['ruta'=>$ruta]);
 });
 
-//Route::get('/ruta/1', function ($localidad) {
-//	$ruta = DB::table('rutas')->where('localidad',$localidad)->first();
-  //  return view('organizator',['ruta'=>$ruta]);
-//});
-
-Route::get('/ruta/tapa/{nombre}', function ($id) {
-	$tapa = DB::table('tapas')->where('id',$id)->first();
-    return view('bar',['tapa'=>$tapa]);
-});
-
 Route::get('/tapa/{id}', function ($id) {
 	$tapa = DB::table('tapas')->where('id',$id)->first();
     return view('tapa',['tapa'=>$tapa]);
 
 });
+
+//Route::get('/ruta/1', function ($localidad) {
+//	$ruta = DB::table('rutas')->where('localidad',$localidad)->first();
+  //  return view('organizator',['ruta'=>$ruta]);
+//});
+
+Route::get('/bar/{id}', function ($id) {
+	$bar = DB::table('bar')->where('id',$id)->first();
+	$rutas = DB::table('rutas')->get();
+
+	$data = [
+		'bar' => $bar,
+		'rutas' => $rutas
+	];
+
+    return view('bar', $data);
+});
+

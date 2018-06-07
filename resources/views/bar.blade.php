@@ -7,17 +7,20 @@
     	<hr>
     	<form>
 	            <div class="form-group">
-	              <input type="text" class="form-control" id="nameBar" placeholder="Nombre del bar">
+	              <input type="text" class="form-control" value="{{ $bar->nombre }}" id="nameBar" placeholder="Nombre del bar">
 	            </div>
 	            	<div class="form-group">
-	              	<input type="text" class="form-control" id="address" placeholder="Dirección">
+	              	<input type="text" class="form-control" value="{{ $bar->direccion }}" id="address" placeholder="Dirección">
 	            	</div>
 	            <div class="form-group">
 	              <select class="custom-select">
 				    <option selected>Elegir ruta de la tapa</option>
-				    <option value="1">One</option>
-				    <option value="2">Two</option>
-				    <option value="3">Three</option>
+				    @foreach($rutas as $ruta)
+				    	<option 
+				    		value="{{ $ruta->nombre }}">
+				    		{{ $ruta->nombre }}
+				    	</option>
+				    @endforeach
 			  	  </select>
 	            </div>
 				<button type="button" class="btn btn-success">Añadir tapa</button>
