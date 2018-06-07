@@ -46,7 +46,7 @@ class RutasController extends Controller
      */
     public function show($id)
     {
-        return Ruta::find($id);
+
     }
 
     /**

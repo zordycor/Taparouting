@@ -51,18 +51,12 @@
                 };
                 var map = new google.maps.Map(
                     document.getElementById("map_canvas"), myOptions);
-                
-                var marker = new google.maps.Marker({
-                    position: center,
-                    map: map,
-                    title: 'Hello World!'
-                });
+
             } else {
                 alert("Something got wrong " + status);
             }
         });
     }
-    google.maps.event.addDomListener(window, "load", initialize);
 </script>
 
 @endsection

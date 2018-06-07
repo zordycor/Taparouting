@@ -31,23 +31,23 @@
             if (status == google.maps.GeocoderStatus.OK) {
                 var Lat = results[0].geometry.location.lat();
                 var Lng = results[0].geometry.location.lng();
-                var myLatlng = new.google.maps.LatLng(Lat, Lng);
                 var myOptions = {
                     zoom: 11,
-                    center: myLatlng
+                    center: new google.maps.LatLng(Lat, Lng)
                 };
                 var map = new google.maps.Map(
                     document.getElementById("map_canvas"), myOptions);
+                
                 var marker = new google.maps.Marker({
-                  position: myLatlng,
-                  title:"Hello World!"
+                    position: myOptions.center,
+                    map: map,
+                    title: 'Hello World!'
                 });
             } else {
                 alert("Something got wrong " + status);
             }
         });
     }
-    google.maps.event.addDomListener(window, "load", initialize);
 </script>
 
 @endsection
