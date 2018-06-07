@@ -85,6 +85,15 @@ img.tapaimg{
 	color: #495056;
 }
 
+#myTab{
+	margin-top: 1rem;
+}
+
+.nav-item{
+	width: 33%;
+	text-align: center;
+}
+
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
 	color: #495057;
     background-color: #b8bcbf;
