@@ -5,7 +5,7 @@
 
 <script>
 	$('.accept').addTapa();
-	$('.deny').
+	$('.deny')
 
 
 function addTapa(){

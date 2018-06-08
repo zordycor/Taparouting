@@ -13,25 +13,26 @@
 
 Route::get('/', function () {
     $rutas = DB::table('rutas')->get();
-    return view('welcome', compact('rutas'));
+    $tapas = DB::table('tapas')->get();
+    $bar = DB::table('bar')->get();
+    return view('welcome', compact('rutas','tapas', 'bar'));
 
 });
 
 Route::get('/ruta/{localidad}', function ($localidad) {
     $ruta = DB::table('rutas')->where('localidad',$localidad)->first();
-    return view('organizator',['ruta'=>$ruta]);
+    $tapas = DB::table('tapas')->where('ruta',$ruta->id)->get();
+    $bar = DB::table('bar')->where('ruta',$ruta->id)->first();
+    return view('organizator', compact('ruta', 'tapas', 'bar'));
 });
 
 Route::get('/tapa/{id}', function ($id) {
 	$tapa = DB::table('tapas')->where('id',$id)->first();
-    return view('tapa',['tapa'=>$tapa]);
+    $ruta = DB::table('rutas')->where('id',$tapa->ruta)->first();
+    $bar = DB::table('bar')->where('id',$tapa->bar)->first();
+    return view('tapa', compact('tapa','ruta', 'bar'));
 
 });
-
-//Route::get('/ruta/1', function ($localidad) {
-//	$ruta = DB::table('rutas')->where('localidad',$localidad)->first();
-  //  return view('organizator',['ruta'=>$ruta]);
-//});
 
 Route::get('/bar/{id}', function ($id) {
 	$bar = DB::table('bar')->where('id',$id)->first();

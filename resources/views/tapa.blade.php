@@ -7,9 +7,9 @@
 <div class="cont">
 <h2>{{$tapa->nombre}}</h2>
 
-<h3>{{$tapa->bar}}</h3>
+<h3>{{$bar->nombre}}</h3>
 
-<h4>{{$tapa->ruta}}</h4>
+<h4>{{$ruta->nombre}}</h4>
 <hr>
 
 <div class="imagenes">
