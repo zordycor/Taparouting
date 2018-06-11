@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$tapa->nombre}}</h5></a>
                 <p class="card-text"><a href="/bar/{{$tapa->bar}}">{{$tapa->bar}}</a></p>
-                <p style="color: grey" href="/ruta/">{{$tapa->ruta}}</p>
+                <p style="color: grey"><a href="/ruta/{{$tapa->ruta}}">{{$tapa->ruta}}</a></p>
             </div>
                 @include('layouts/solicitudesbtn')
         </div>

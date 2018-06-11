@@ -58,6 +58,10 @@ img.tapaimg{
 	background-color: darkred;
  }
 
+ .navbar-nav{
+ 	width: 25%
+ }
+
  .carousel-item img{
 	 background-size: cover;
 	 background-position: center;
@@ -90,7 +94,7 @@ img.tapaimg{
 }
 
 .nav-item{
-	width: 33%;
+	width: 100%;
 	text-align: center;
 }
 

@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/ruta/{localidad}', function ($localidad) {
     $ruta = DB::table('rutas')->where('localidad',$localidad)->first();
-    $tapas = DB::table('tapas')->where('ruta',$ruta->id)->get();
+    $tapas = DB::table('tapas')->where('ruta',$ruta->$localidad)->get();
     $bar = DB::table('bar')->where('ruta',$ruta->id)->first();
     return view('organizator', compact('ruta', 'tapas', 'bar'));
 });
@@ -57,3 +57,7 @@ Route::get('/bar/{id}', function ($id) {
     return view('bar', $data);
 });
 
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
