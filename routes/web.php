@@ -1,5 +1,8 @@
 <?php
 
+use App\Ruta;
+use App\Bar;
+use App\Tapa;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +35,14 @@ Route::get('/tapa/{id}', function ($id) {
     $bar = DB::table('bar')->where('id',$tapa->bar)->first();
     return view('tapa', compact('tapa','ruta', 'bar'));
 
+});
+
+Route::get('/tapa/{id}/qr', function ()
+{
+    return  QRCode::url('/tapa/{id}/qr')
+        ->setSize(8)
+        ->setMargin(2)
+        ->png();
 });
 
 Route::get('/bar/{id}', function ($id) {
