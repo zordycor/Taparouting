@@ -25,7 +25,7 @@ class TapasController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +36,15 @@ class TapasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tapa = new Tapa;
+
+        $tapa->nombre = request('nombre');
+        $tapa->ruta = request('ruta');
+        $tapa->img = request('img');
+
+        $tapa->save();
+
+        return redirect('/');
     }
 
     /**

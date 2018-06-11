@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ruta;
+use App\Tapa;
+use App\Bar;
 
 class RutasController extends Controller
 {
@@ -44,9 +46,9 @@ class RutasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($localidad)
     {
-
+        
     }
 
     /**
