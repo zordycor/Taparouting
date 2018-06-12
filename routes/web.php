@@ -14,6 +14,9 @@ use App\Tapa;
 |
 */
 
+Route::put('/ruta/edit', 'RutasController@edit');
+Route::post('/ruta', 'RutasController@store');
+
 Route::get('/', function () {
     $rutas = DB::table('rutas')->get();
     $tapas = DB::table('tapas')->get();

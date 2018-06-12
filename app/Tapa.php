@@ -12,7 +12,7 @@ class Tapa extends Model
 	}
 
     public function bar(){
-        return $this->hasOne('App\Bar','nombre','bar');
+        return $this->belongsTo('App\Bar');
     }
 
     public function ruta(){

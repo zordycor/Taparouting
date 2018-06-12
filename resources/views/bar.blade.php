@@ -23,7 +23,6 @@
 				    @endforeach
 			  	  </select>
 	            </div>
-				<button type="button" class="btn btn-success">Añadir tapa</button>
 				<div class="form-group">
 					<input type="text" class="form-control" id="nameTapa" placeholder="Nombre de la tapa">
 				</div>
@@ -31,6 +30,9 @@
 	            	<label>Foto de la tapa</label>
 	              <input type="file" class="form-control" id="archivo" placeholder="">
 	            </div>
+
+                <button type="button" class="btn btn-success">Añadir tapa</button>
+
 	            <button type="submit" class="btn btn-primary">Enviar solicitud</button>
         	</form>
 

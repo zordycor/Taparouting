@@ -24,7 +24,7 @@
               @include('layouts.cards')
           </div>
 		  <div class="tab-pane fade" id="conf" role="tabpanel" aria-labelledby="conf-tab">
-              @include('layouts.config')
+              @include('layouts.edit')
 		  </div>
 		</div>
     </div>

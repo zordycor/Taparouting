@@ -26,7 +26,7 @@ class RutasController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class RutasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -59,7 +59,8 @@ class RutasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ruta = Ruta::find($id);
+        return view('layouts.edit',compact('ruta'));
     }
 
     /**
@@ -69,9 +70,10 @@ class RutasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $localidad)
     {
-        //
+        Ruta::update($request->all());
+        return view('welcome');
     }
 
     /**
