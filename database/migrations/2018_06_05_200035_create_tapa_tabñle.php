@@ -16,7 +16,7 @@ class CreateTapaTabñle extends Migration
         Schema::create('tapas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('bar');
+            $table->foreign('bar_id')->references('id')->on('bar');
             $table->string('ruta');
             $table->string('qr');
             $table->boolean('aceptado');

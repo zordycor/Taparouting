@@ -9,7 +9,11 @@ class Bar extends Model
     protected $table = 'bar';
 
     public function tapas(){
-        return $this->hasMany('App\Tapa');
+        return $this->hasOne('App\Tapa');
+    }
+
+    public function rutas(){
+        return $this->belongsTo('App\Ruta');
     }
 
 }

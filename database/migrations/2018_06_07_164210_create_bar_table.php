@@ -17,7 +17,8 @@ class CreateBarTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('direccion');
-            $table->string('ruta');
+            $table->integer('ruta_id')->unsigned();
+            $table->foreign('ruta_id')->references('id')->on('rutas');
             $table->timestamps();
         });
     }

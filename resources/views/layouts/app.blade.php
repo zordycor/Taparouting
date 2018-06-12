@@ -1,5 +1,4 @@
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-red navbar-light fixed-top">
+        <nav class="navbar navbar-default navbar-expand-md fixed-top">
             <a class="navbar-brand" href="">
                 Taparouting
             </a>
@@ -51,8 +50,3 @@
                 </ul>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>

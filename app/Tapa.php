@@ -14,8 +14,4 @@ class Tapa extends Model
     public function bar(){
         return $this->belongsTo('App\Bar');
     }
-
-    public function ruta(){
-        return $this->hasOne('App\Ruta','nombre','ruta');
-    }
 }

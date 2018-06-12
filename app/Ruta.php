@@ -15,8 +15,4 @@ class Ruta extends Model
     public function bares(){
         return $this->hasMany('App\Bar');
     }
-
-    public function tapas(){
-        return $this->hasMany('App\Tapa');
-    }
 }
