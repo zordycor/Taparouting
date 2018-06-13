@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
 .animate-pop-in {
   animation: pop-in .6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
   opacity: 0;
@@ -14,16 +16,17 @@
   position: relative;
   transform-style: preserve-3d;
   perspective: 100px;
-  background-color: white;
+  background-color: white; 
   background-position: 0 0;
   background-repeat: no-repeat;
   background-image: url("/img/background2.png");
   height: 100vh;
   background-position: center;
   background-size: cover;
-  animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+
 
   &:before{
+    animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
     content: "";
     position:absolute;
     top:0;
@@ -45,21 +48,47 @@
   h1{
     color: white;
     animation-delay: .4s;
-    display: block;
   }
 
   .reinventadas{
     font-family: 'Covered By Your Grace', cursive;
   }
 
-  .indexButtons{
+  .search{
     position: relative;
-    padding-top: 2rem;
+
+    input{
+      text-indent: 30px;
+    }
+
+      .searchIcon{
+        font-size: 1rem;
+        color: lightgray;
+        position: absolute;
+        top: 11px;
+        left: 9px;
+        font-size: 17px;
+      }
+
+  }
+
+  .searchBar{
+    width: 50%;
+    max-width: 240px;
+    margin-top: 1rem;
     animation-delay: .8s;
+  }
+
+
+  .input-group>.custom-select:not(:last-child), .input-group>.form-control:not(:last-child){
+    border-radius: .25rem;
+  }
+
+  [type=reset], [type=submit], button, html [type=button]{
+    -webkit-appearance: caret;
   }
 }
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 
 .navbar{
@@ -95,23 +124,13 @@ img.tapaimg{
   margin: 2rem 0;
 }
 
-/*.calendar{*/
-/*border-color: chocolate;*/
-/*margin: 1rem;*/
-/*border-style: solid;*/
-/*border-width: thin;*/
-/*border-radius: 5px;*/
-/*width: 95%;*/
-/*list-style-type: none;*/
-/*padding: 1rem;*/
-/*}*/
-
 .loggedNav{
   width: 100%;
 }
 
 .notLoggedNav{
-  width: 35%;
+  width: 36%;
+  max-width: 220px;
 }
 
 #map_canvas{
@@ -143,14 +162,44 @@ img.tapaimg{
   margin: 3rem;
 }
 
+.card-cont{
+  background: darkgrey;
+  padding: 1.5rem;
+  border: 0;
+  border-radius: 0;
+}
+
 .card-body.buttons{
   position: relative;
+}
+
+.card{
+  border: 0;
 }
 
 .card-deck .card{
   min-width: 300px;
   max-width: 300px;
   margin: 1rem;
+}
+
+.card-img-top{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.filtros{
+  font-weight: 900;
+}
+
+ul.etiquetas li{
+  display: inline;
+  font-size: 11px;
+}
+
+.cardSeparator{
+  background: red;
+  width: 10px;
 }
 
 a{

@@ -1,6 +1,6 @@
         <nav class="navbar navbar-default navbar-expand-md fixed-top animate-pop-in">
             <a class="navbar-brand" href="">
-                Taparouting
+                TapaRouting
             </a>
             <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}"><i class="far fa-user"></i></a>
+                            <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
                         </li>
                         <hr>
                         <li class="nav-item">
@@ -31,7 +31,7 @@
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle loggedNav" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <span class="far fa-user"></span> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
