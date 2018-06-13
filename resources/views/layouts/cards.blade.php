@@ -20,8 +20,8 @@
                 </ul>
 
                 <h4 class="card-title"><strong>{{$tapa->nombre}}</strong></h4>
-                <p class="card-bar"><a href="/bar/{{$tapa->bar}}">{{$tapa->bar}}</a></p>
                 <hr class="cardSeparator">
+                <p class="card-bar"><a href="/bar/{{$tapa->bar}}">{{$tapa->bar}}</a></p>
                 <p class="card-description">{{ $tapa->description }}</p>
                 <p style="color: grey"><a href="/ruta/{{$tapa->ruta}}">{{$tapa->ruta}}</a></p>
             </div>
