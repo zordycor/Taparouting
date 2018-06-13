@@ -1,8 +1,8 @@
-        <nav class="navbar navbar-default navbar-expand-md fixed-top">
+        <nav class="navbar navbar-default navbar-expand-md fixed-top animate-pop-in">
             <a class="navbar-brand" href="">
                 Taparouting
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -22,7 +22,7 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+                            <a class="nav-link" href="{{ route('login') }}"><i class="far fa-user"></i></a>
                         </li>
                         <hr>
                         <li class="nav-item">
