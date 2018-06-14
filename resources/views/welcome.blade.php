@@ -14,7 +14,7 @@
        </div>
        <div class="searchBar animate-pop-in">
 
-           {!! Form::open(['method'=>'GET','url'=>'rutas','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+           {!! Form::open(['method'=>'GET','url'=>'/search','class'=>'searchBar','role'=>'search'])  !!}
 
            <div class="search animate-pop-in">
                <span class="fa fa-search searchIcon"></span>

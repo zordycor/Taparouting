@@ -14,10 +14,10 @@
                 <img class="card-img-top" src="/img/{{$tapa->img}}" alt="Card image cap">
             </a>
             <div class="card-body">
-                <ul class="etiquetas">
-                    <li>VEGANO</li>
-                    <li>DULCE</li>
-                </ul>
+                <div class="etiquetas">
+                    <span>VEGANO</span>
+                    <span>DULCE</span>
+                </div>
 
                 <h4 class="card-title"><strong>{{$tapa->nombre}}</strong></h4>
                 <hr class="cardSeparator">

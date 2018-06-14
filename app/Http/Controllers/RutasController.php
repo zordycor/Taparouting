@@ -16,13 +16,24 @@ class RutasController extends Controller
      */
     public function index()
     {
-        $search = \Request::get('search'); //<-- we use global request to get the param of URI
 
-        $rutas = Ruta::where('name','like','%'.$search.'%')
-            ->orderBy('name')
-            ->paginate(20);
+    }
 
-        return view('rutas',compact('rutas'));
+    public function search(Request $request, $searchKey=null){
+        if($searchKey == null){
+            $searchKey = $request->input('search');
+        }
+
+
+        $ruta = Ruta::where('nombre','LIKE','%'. $searchKey .'%')->first();
+        list($tapas,$bar) = $ruta->related();
+
+
+        return view('layouts.ruta', compact(
+            'ruta',
+            'tapas',
+            'bar'
+        ));
     }
 
     /**

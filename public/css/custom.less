@@ -3,7 +3,10 @@
 .animate-pop-in {
   animation: pop-in .6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
   opacity: 0;
+}
 
+.fade-slide-left {
+  animation: fade-slide-left .8s ease-out forwards;
 }
 
 .main-container{
@@ -41,10 +44,6 @@
 
   }
 
-  &:after{
-
-  }
-
   h1{
     color: white;
     animation-delay: .4s;
@@ -59,6 +58,12 @@
 
     input{
       text-indent: 30px;
+      background-color: rgba(0, 0, 0, .2);
+      border: 0;
+
+      &:focus{
+        background-color: rgba(255, 255, 255, 1);
+      }
     }
 
       .searchIcon{
@@ -73,7 +78,7 @@
   }
 
   .searchBar{
-    width: 50%;
+    width: 100%;
     max-width: 240px;
     margin-top: 1rem;
     animation-delay: .8s;
@@ -101,11 +106,84 @@
   display: flex;
 }
 
-
 .cont{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
 
-  text-align: center;
+  .bg{
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url('/img/fondopuzol.jpg') center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .4;
+    width: 100%;
+    height: 100%;
+  }
 }
+
+.row{
+  display: flex;
+  position: relative;
+  margin: 0;
+
+  .bg-row{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    opacity: .4;
+    padding: 2.7rem;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 5px;
+    height: 100%;
+  }
+
+  &.column{
+    flex: 50%;
+  }
+}
+
+.rutaTitle{
+  position: relative;
+}
+
+.greyBack{
+  background-color: lightgrey;
+  border-radius: 5px;
+  text-align: left;
+  margin: .5rem;
+  width: 25%;
+  max-width: 90px;
+  position: absolute;
+  top: 0;
+  left: 30rem;
+
+  &--silver{
+    top: 1.5rem;
+  }
+
+  &--bronze{
+    top: 3rem;
+  }
+
+
+  .fas{
+    margin-left: .5rem;
+  }
+}
+
+
 
 .logoimg{
   text-align: center;
@@ -163,7 +241,7 @@ img.tapaimg{
 }
 
 .card-cont{
-  background: darkgrey;
+  background: lightgrey;
   padding: 1.5rem;
   border: 0;
   border-radius: 0;
@@ -192,7 +270,7 @@ img.tapaimg{
   font-weight: 900;
 }
 
-ul.etiquetas li{
+.etiquetas{
   display: inline;
   font-size: 11px;
 }
@@ -200,7 +278,8 @@ ul.etiquetas li{
 .cardSeparator{
   background: red;
   height: 1px;
-  margin: 0;
+  margin-left: 38%;
+  width: 25%;
 }
 
 a{
@@ -208,6 +287,7 @@ a{
 }
 
 
+// ANIMATIONS
 
 
 @keyframes pop-in {
@@ -228,6 +308,17 @@ a{
   }
   100% {
     opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-4rem);
+  }
+  100% {
+    opacity: .5;
     transform: none;
   }
 }

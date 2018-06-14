@@ -16,6 +16,10 @@ use App\Tapa;
 
 Route::put('/ruta/edit', 'RutasController@edit');
 Route::post('/ruta', 'RutasController@store');
+Route::get('/search/{searchKey}', 'RutasController@search');
+Route::get('/search', 'RutasController@search');
+
+
 
 Route::get('/', function () {
     $rutas = DB::table('rutas')->get();
@@ -27,8 +31,7 @@ Route::get('/', function () {
 
 Route::get('/ruta/{localidad}', function ($localidad) {
     $ruta = DB::table('rutas')->where('localidad',$localidad)->first();
-    $tapas = DB::table('tapas')->where('ruta',$ruta->id)->get();
-    $bar = DB::table('bar')->where('ruta',$ruta->nombre)->get();
+    list($tapas,$bar) = $ruta->related();
     return view('organizator', compact('ruta', 'tapas', 'bar'));
 });
 

@@ -1,34 +1,35 @@
-<div id="map_canvas"></div>
-<div class="cont">
-    <h2>
-        {{ $ruta->nombre }}
-    </h2>
-    <h4>Del
-        {{ date('d', strtotime($ruta->inicio)) }} al
-        {{ date('d', strtotime($ruta->fin)) }} de
-        {{ date('M', strtotime($ruta->inicio)) }}
-    </h4>
-    <hr>
-    <div class="row">
-        <div class="col-md-4">
-            Primer Premio: {{ $ruta->price1 }}€
-        </div>
-        <div class="col-md-4">
-            Segundo Premio: {{ $ruta->price2 }}€
-        </div>
-        <div class="col-md-4">
-            Tercer Premio: {{ $ruta->price3 }}€
-        </div>
-    </div>
-    <div class="logo">
-        <img class="logoimg" src="/img/{{$ruta->img}}">
-    </div>
-    <div class="description">
-        {{ $ruta->description }}
-    </div>
+@extends('templates.master')
+@section('main')
 
-    @include('layouts.cards')
+
+<div class="cont">
+    <div class="bg fade-slide-left"></div>
+    <div class="row">
+        <div class="bg-row"></div>
+        <div class="rutaTitle">
+            <h2>
+                {{ $ruta->nombre }}
+            </h2>
+            <h4>Del
+                {{ date('d', strtotime($ruta->inicio)) }} al
+                {{ date('d', strtotime($ruta->fin)) }} de
+                {{ date('M', strtotime($ruta->inicio)) }}
+            </h4>
+
+                <div class="greyBack"><i class="fas fa-trophy" style="color: yellow;"></i> {{ $ruta->price1 }}€</div>
+                <div class="greyBack greyBack--silver"><i class="fas fa-trophy" style="color: silver;"></i> {{ $ruta->price2 }}€</div>
+                <div class="greyBack greyBack--bronze"><i class="fas fa-trophy" style="color: saddlebrown;"></i> {{ $ruta->price3 }}€</div>
+        </div>
+    </div>
+        <div class="logo">
+            <img class="logoimg" src="/img/{{$ruta->img}}">
+        </div>
+        <div class="description">
+            {{ $ruta->description }}
+        </div>
+<!--        <div id="map_canvas"></div>-->
 </div>
+@include('layouts.cards')
 
 <script>
     function initialize() {
