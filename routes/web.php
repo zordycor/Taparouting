@@ -25,7 +25,8 @@ Route::get('/', function () {
     $rutas = DB::table('rutas')->get();
     $tapas = DB::table('tapas')->get();
     $bar = DB::table('bar')->get();
-    return view('welcome', compact('rutas','tapas', 'bar'));
+    $error = '';
+    return view('welcome', compact('rutas','tapas', 'bar', 'error'));
 
 });
 

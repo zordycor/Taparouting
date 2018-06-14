@@ -4,6 +4,7 @@
 
 <div class="cont">
     <div class="bg fade-slide-left"></div>
+    <a href=""><i class="fas fa-angle-left"></i></a>
     <div class="row">
         <div class="bg-row"></div>
         <div class="rutaTitle">
@@ -21,15 +22,14 @@
                 <div class="greyBack greyBack--bronze"><i class="fas fa-trophy" style="color: saddlebrown;"></i> {{ $ruta->price3 }}€</div>
         </div>
     </div>
-        <div class="logo">
-            <img class="logoimg" src="/img/{{$ruta->img}}">
-        </div>
+
         <div class="description">
             {{ $ruta->description }}
         </div>
+    @include('layouts.cards')
 <!--        <div id="map_canvas"></div>-->
 </div>
-@include('layouts.cards')
+
 
 <script>
     function initialize() {

@@ -199,7 +199,9 @@ img.tapaimg{
 }
 
 .description{
-  margin: 2rem 0;
+  margin: 2rem 1rem;
+  color: darkgray;
+  font-weight: bold;
 }
 
 .loggedNav{
@@ -247,12 +249,24 @@ img.tapaimg{
   border-radius: 0;
 }
 
-.card-body.buttons{
-  position: relative;
+.card-body {
+  padding: 1rem 0 0;
+
+  &.buttons {
+    position: relative;
+  }
+}
+
+.fa-angle-left{
+  font-size: 50px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 
 .card{
   border: 0;
+  text-align: center;
 }
 
 .card-deck .card{
@@ -268,6 +282,16 @@ img.tapaimg{
 
 .filtros{
   font-weight: 900;
+  text-align: center;
+
+  span{
+    margin: 0 1rem;
+    cursor: pointer;
+
+    &.active{
+      color: red;
+    }
+  }
 }
 
 .etiquetas{
