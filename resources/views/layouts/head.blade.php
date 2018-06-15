@@ -20,6 +20,9 @@
     <!-- Local CSS -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
+    <!-- Javascript -->
+    <script src="/js/main.js"></script>
+
     <!-- Animations -->
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 

@@ -21,6 +21,5 @@ const app = new Vue({
     el: '#app'
 });
 
-$( '#search' ).each(function(){
-    this.reset();
-});
+
+

@@ -17,5 +17,7 @@
            {!! Form::close() !!}
    </div>
 
+
 @endsection
+       @include('layouts.modalLogin')
 
