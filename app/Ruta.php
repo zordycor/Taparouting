@@ -25,9 +25,8 @@ class Ruta extends Model
     }
 
     public function related(){
-        $tapas = \DB::table('tapas')->where('ruta',$this->id)->get();
-        $bares = \DB::table('bar')->where('ruta',$this->id)->get();
+        $bares = \DB::table('bares')->where('ruta_id',$this->id)->get();
 
-        return array($tapas, $bares);
+        return $bares;
     }
 }

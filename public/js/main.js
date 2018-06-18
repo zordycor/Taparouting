@@ -1,7 +1,11 @@
 $(document).ready(function(){
 
     $('.js-login').click(function(){
-        $( '.modal' ).modal({keyboard: true});
+        $( '.login' ).modal({keyboard: true});
+    });
+
+    $('.js-signin').click(function(){
+        $( '.signin' ).modal({keyboard: true});
     });
 
 });

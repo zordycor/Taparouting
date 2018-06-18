@@ -132,6 +132,7 @@
   display: flex;
   position: relative;
   margin: 0;
+  opacity: 1;
 
   .bg-row{
     position: absolute;
@@ -154,8 +155,17 @@
   }
 }
 
-.rutaTitle{
+.rowText, .rowData{
+background: rgba(211,211,211,0.5);
+}
+
+.rowData{
+  margin-top: 5rem;
+}
+
+.title{
   position: relative;
+  margin-left: 1rem;
 }
 
 .greyBack{
@@ -183,7 +193,13 @@
   }
 }
 
-.js-login{
+.datosBar{
+  text-align: right;
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.nav-link{
   cursor: pointer;
 }
 
@@ -198,6 +214,11 @@ img.tapaimg{
   text-align: center;
   width: 49%;
   max-width: 600px;
+}
+
+img.fullimg{
+  width: 100%;
+  max-height: 400px;
 }
 
 .description{
@@ -269,6 +290,7 @@ img.tapaimg{
 .card{
   border: 0;
   text-align: center;
+  width: 100%;
 }
 
 .card-deck .card{

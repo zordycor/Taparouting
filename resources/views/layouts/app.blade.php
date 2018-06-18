@@ -15,7 +15,7 @@
                 </li>
                 <hr>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
+                    <div class="nav-link js-signin">Registrarse</div>
                 </li>
             @else
                 <li class="nav-item dropdown">

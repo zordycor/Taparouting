@@ -7,7 +7,7 @@
     <a href=""><i class="fas fa-angle-left"></i></a>
     <div class="row">
         <div class="bg-row"></div>
-        <div class="rutaTitle">
+        <div class="title">
             <h2>
                 {{ $ruta->nombre }}
             </h2>
@@ -55,3 +55,5 @@
         });
     }
 </script>
+
+@endsection
