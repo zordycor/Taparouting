@@ -35,13 +35,11 @@ Route::get('/ruta/{localidad}', function ($localidad) {
     return view('layouts.ruta', compact('ruta', 'bares'));
 });
 
-Route::get('/bar/{id}', function ($id) {
-    $bar = DB::table('bares')->where('id',$id)->first();
-    $rutas = DB::table('rutas')->get();
-    return view('bar', compact( 'bar', 'rutas'));
-
+Route::get('/ruta/{localidad}/config', function ($localidad) {
+    $ruta = DB::table('rutas')->where('localidad',$localidad)->first();
+    $bares = $ruta->related();
+    return view('layouts.config', compact('ruta', 'bares'));
 });
-
 
 Auth::routes();
 

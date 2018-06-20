@@ -26,12 +26,11 @@ class RutasController extends Controller
 
 
         $ruta = Ruta::where('nombre','LIKE','%'. $searchKey .'%')->first();
-        list($tapas,$bar) = $ruta->related();
+        $bar = $ruta->related();
 
 
         return view('layouts.ruta', compact(
             'ruta',
-            'tapas',
             'bar'
         ));
     }
