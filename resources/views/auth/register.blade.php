@@ -9,6 +9,18 @@
                     @csrf
 
                     <div class="form-group row">
+                        <label for="role" class="col-md-4 col-form-label text-md-right">Rol</label>
+
+                        <div class="col-md-6">
+                            <input type="text" name="role" class="form-control {{ $errors->has('role') ? ' is-invalid' : '' }}" value="0">
+<!--                            <select id="role" class="form-control">-->
+<!--                                <option value="0" name="role">0</option>-->
+<!--                                <option value="1" name="role">1</option>-->
+<!--                            </select>-->
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">Nombre</label>
 
                         <div class="col-md-6">
@@ -70,4 +82,3 @@
         </div>
     </div>
 </div>
-@endsection
