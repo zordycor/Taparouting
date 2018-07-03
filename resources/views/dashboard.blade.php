@@ -21,7 +21,7 @@
                         </label>
 
                         <label>
-                            <a href="">
+                            <a href="/config">
                                 Mi configuración
                             </a>
                         </label>

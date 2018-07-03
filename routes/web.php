@@ -35,11 +35,27 @@ Route::get('/ruta/{localidad}', function ($localidad) {
     return view('layouts.ruta', compact('ruta', 'bares'));
 });
 
+Route::get('/config', function () {
+    $user = Auth::user();
+
+    if($user['role'] == '1'){
+        $bar = DB::table('bares')->where('user_id',$user->id)->first();
+        return view('layouts.barConfig', compact('user','bar'));
+    }
+
+    if($user['role'] == '0'){
+        $ruta = DB::table('rutas')->where('user_id',$user->id)->first();
+        return view('layouts.rutaConfig', compact('user','ruta'));
+    }
+});
+
 Route::get('/ruta/{localidad}/config', function ($localidad) {
     $ruta = DB::table('rutas')->where('localidad',$localidad)->first();
     $bares = $ruta->related();
     return view('layouts.config', compact('ruta', 'bares'));
 });
+
+Route::post('/barupdate', ['uses' => 'BaresController@update']);
 
 Auth::routes();
 

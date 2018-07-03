@@ -16,4 +16,7 @@ class Bar extends Model
         return $ruta;
     }
 
+    protected $fillable = [
+        'nombre', 'direccion', 'horarios', 'tapanom', 'tapadesc', 'tapaimg'
+    ];
 }

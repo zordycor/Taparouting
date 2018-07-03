@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use App\Ruta;
 use App\Tapa;
 use App\Bar;
-class RutasController extends Controller
+class BaresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +18,8 @@ class RutasController extends Controller
         if($searchKey == null){
             $searchKey = $request->input('search');
         }
-        $ruta = Ruta::where('nombre','LIKE','%'. $searchKey .'%')->first();
-        $bar = $ruta->related();
-        return view('layouts.ruta', compact(
-            'ruta',
-            'bar'
-        ));
+        $bar = Bar::where('nombre','LIKE','%'. $searchKey .'%')->first();
+        return view('layouts.bar', compact('bar'));
     }
     /**
      * Show the form for creating a new resource.
@@ -61,8 +57,8 @@ class RutasController extends Controller
      */
     public function edit($id)
     {
-        $ruta = Ruta::find($id);
-        return view('layouts.edit',compact('ruta'));
+        $bar = Bar::find($id);
+        return view('layouts.edit',compact('bar'));
     }
     /**
      * Update the specified resource in storage.
@@ -71,7 +67,7 @@ class RutasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $localidad)
+    public function update(Request $request,$id)
     {
         Ruta::update($request->all());
         return view('welcome');
