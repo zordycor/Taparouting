@@ -67,9 +67,10 @@ class BaresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
-    {
-        Ruta::update($request->all());
+    public function update(Request $request,$id){
+
+        die('werwerwrewerrew');
+        Bar::update($request->all());
         return view('welcome');
     }
     /**

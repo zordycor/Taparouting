@@ -1,6 +1,8 @@
 <h2>Panel de configuración</h2>
 <hr>
-<form action="/barupdate">
+<form action="/barupdate" method="post">
+
+    {{ csrf_field() }}
 
     <div class="form-group">
         <label for="name">Nombre</label>

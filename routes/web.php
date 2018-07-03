@@ -18,6 +18,7 @@ Route::put('/ruta/edit', 'RutasController@edit');
 Route::post('/ruta', 'RutasController@store');
 Route::get('/search/{searchKey}', 'RutasController@search');
 Route::get('/search', 'RutasController@search');
+Route::post('/barupdate', 'BaresController@update');
 
 
 
@@ -54,8 +55,6 @@ Route::get('/ruta/{localidad}/config', function ($localidad) {
     $bares = $ruta->related();
     return view('layouts.config', compact('ruta', 'bares'));
 });
-
-Route::post('/barupdate', ['uses' => 'BaresController@update']);
 
 Auth::routes();
 
