@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use App\Ruta;
 use App\Tapa;
 use App\Bar;
+use Auth;
+
 class BaresController extends Controller
 {
     /**
@@ -65,9 +67,13 @@ class BaresController extends Controller
      */
     public function update(Request $request,$id){
 
-        die('werwerwrewerrew');
-        Bar::update($request->all());
-        return view('welcome');
+        $bar = Bar::find($id);
+        $user = $this->__getUser();
+
+        if($bar->user_id === $user['id']){
+            $bar->update($request->all());
+            return view('layouts.bar');
+        }
     }
     /**
      * Remove the specified resource from storage.

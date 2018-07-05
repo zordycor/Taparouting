@@ -12,7 +12,6 @@
                <span class="fa fa-search searchIcon"></span>
                <input type="search" id="search" class="form-control" name="search" placeholder="Busca rutas por localidad">
            </div>
-           <div class="errorMessage">{{ $error }}</div>
            {!! Form::close() !!}
    </div>
 

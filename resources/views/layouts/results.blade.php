@@ -2,7 +2,7 @@
 @include('layouts.app')
 @section('main')
 <div class="results">
-    @if($rutas)
+    @if(count($rutas))
     <div class="resultsTitle">Rutas</div>
     <ul class="resultsValues">
         @foreach($rutas as $ruta)
@@ -14,15 +14,7 @@
     <div class="resultsTitle">Bares</div>
     <ul class="resultsValues">
         @foreach($bares as $bar)
-        <li class="value">{{ $bar->nombre }}</li>
-        @endforeach
-    </ul>
-    @endif
-    @if($bares)
-    <div class="resultsTitle">Tapas</div>
-    <ul class="resultsValues">
-        @foreach($bares as $bar)
-        <li class="value">{{ $bar->tapanom }}</li>
+        <li class="value"><a href="/bar/{{ $bar->id }}">{{ $bar->nombre }} y su tapa "{{ $bar->tapanom }}"</li>
         @endforeach
     </ul>
     @endif

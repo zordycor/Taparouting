@@ -60,10 +60,15 @@ class RutasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $localidad)
+    public function update(Request $request, $id)
     {
-        Ruta::update($request->all());
-        return view('welcome');
+        $ruta = Ruta::find($id);
+        $user = $this->__getUser();
+
+        if($ruta->user_id === $user['id']){
+            $ruta->update($request->all());
+            return view('layouts.ruta');
+        }
     }
     /**
      * Remove the specified resource from storage.

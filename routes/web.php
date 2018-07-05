@@ -2,7 +2,7 @@
 
 use App\Ruta;
 use App\Bar;
-use App\Tapa;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +18,8 @@ Route::put('/ruta/edit', 'RutasController@edit');
 Route::post('/ruta', 'RutasController@store');
 Route::get('/search/{searchKey}', 'RutasController@search');
 Route::get('/search', 'MainController@search');
-Route::post('/barupdate', 'BaresController@update');
+Route::post('/barupdate/{id}', 'BaresController@update');
+Route::post('/rutaupdate/{id}', 'RutasController@update');
 
 
 

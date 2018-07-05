@@ -1,6 +1,6 @@
 <h2>Panel de configuración</h2>
 <hr>
-<form action="/barupdate" method="post">
+<form action="/barupdate/{{ $bar->id }}" method="post">
 
     {{ csrf_field() }}
 

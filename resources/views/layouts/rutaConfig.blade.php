@@ -1,6 +1,6 @@
 <h2>Panel de configuración</h2>
 <hr>
-<form action="/rutaupdate" method="post">
+<form action="/rutaupdate/{{ $ruta->id }}" method="post">
     {{ csrf_field() }}
 
     <div class="form-group">
