@@ -29,4 +29,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
 
+    <!-- Maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX_xS5OMUptlPC-mo0Xb9LyOuhLPWqHXI&callback=initialize" type="text/javascript"></script>
+
 </head>

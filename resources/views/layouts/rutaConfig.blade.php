@@ -2,7 +2,7 @@
 <hr>
 <form action="/rutaupdate" method="post">
     {{ csrf_field() }}
-    
+
     <div class="form-group">
         <input type="text" class="form-control" id="name" value="{{ $ruta->nombre }}" placeholder="Nombre de la ruta">
     </div>

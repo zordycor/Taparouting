@@ -112,46 +112,66 @@
   flex-direction: column;
   min-height: 100vh;
 
-  .bg{
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: url('/img/fondopuzol.jpg') center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: .4;
-    width: 100%;
-    height: 100%;
-  }
-}
+  .firstBlock{
+    position: relative;
 
-.row{
-  display: flex;
-  position: relative;
-  margin: 0;
-  opacity: 1;
+    .bg{
+      position: absolute;
+      z-index: -2;
+      background: url('/img/fondopuzol.jpg') center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: .4;
+      width: 100%;
+      height: 100%;
+    }
 
-  .bg-row{
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    opacity: .4;
-    padding: 2.7rem;
-    width: 100%;
-    max-width: 600px;
-    border-radius: 5px;
-    height: 100%;
-  }
+    .descMap{
+      display: flex;
+      margin-top: 2rem;
 
-  &.column{
-    flex: 50%;
+      .description{
+        margin: 2rem;
+        color: black;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      #map_canvas{
+        height: 400px;
+        width: 100%;
+        margin: 2rem;
+        z-index: 5;
+      }
+    }
+
+    .row{
+      display: flex;
+      position: relative;
+      margin: 0;
+      opacity: 1;
+      justify-content: flex-end;
+
+      .bg-row{
+        position: absolute;
+        z-index: -1;
+        background-color: white;
+        opacity: .4;
+        padding-top: 15rem;
+        width: 100%;
+        border-radius: 5px;
+        height: 100%;
+      }
+
+      &.column{
+        flex: 50%;
+      }
+
+      .prizes{
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
   }
 }
 
@@ -165,7 +185,12 @@ background: rgba(211,211,211,0.5);
 
 .title{
   position: relative;
-  margin-left: 1rem;
+  margin-right: 12rem;
+  margin-top: 5rem;
+
+  h1{
+    font-size: 3rem;
+  }
 }
 
 .greyBack{
@@ -175,7 +200,6 @@ background: rgba(211,211,211,0.5);
   margin: .5rem;
   width: 25%;
   max-width: 90px;
-  position: absolute;
   top: 0;
   left: 30rem;
 
@@ -221,25 +245,14 @@ img.fullimg{
   max-height: 400px;
 }
 
-.description{
-  margin: 2rem 1rem;
-  color: darkgray;
-  font-weight: bold;
-}
-
 .loggedNav{
   width: 100%;
 }
 
+
 .notLoggedNav{
   width: 36%;
   max-width: 220px;
-}
-
-#map_canvas{
-  height: 400px;
-  width: 100%;
-  margin-top: 1rem;
 }
 
 .littleMap{
@@ -270,6 +283,12 @@ img.fullimg{
   padding: 1.5rem;
   border: 0;
   border-radius: 0;
+
+  .card-img-top{
+    max-height: 300px;
+    object-fit: cover;
+    object-position: bottom;
+  }
 }
 
 .card-body {
@@ -307,6 +326,7 @@ img.fullimg{
 .filtros{
   font-weight: 900;
   text-align: center;
+  margin-top: 4rem;
 
   span{
     margin: 0 1rem;

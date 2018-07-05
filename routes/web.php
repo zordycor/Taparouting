@@ -31,7 +31,7 @@ Route::get('/', function () {
 });
 
 Route::get('/ruta/{localidad}', function ($localidad) {
-    $ruta = DB::table('rutas')->where('localidad',$localidad)->first();
+    $ruta = Ruta::where('localidad',$localidad)->first();
     $bares = $ruta->related();
     return view('layouts.ruta', compact('ruta', 'bares'));
 });

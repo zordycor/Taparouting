@@ -19,11 +19,10 @@
                     <span>DULCE</span>
                 </div>
 
-                <h4 class="card-title"><strong>{{$tapa->nombre}}</strong></h4>
+                <h4 class="card-title"><strong>{{$bar->tapanom}}</strong></h4>
                 <hr class="cardSeparator">
-                <p class="card-bar"><a href="/bar/{{$bar->tapanom}}">{{$bar->tapanom}}</a></p>
+                <p class="card-bar"><a href="/bar/{{$bar->id}}">{{$bar->nombre}}</a></p>
                 <p class="card-description">{{ $bar->tapadesc }}</p>
-                <p style="color: grey"><a href="/ruta/{{$tapa->ruta}}">{{$bar->ruta_id}}</a></p>
             </div>
         </div>
     </div>
