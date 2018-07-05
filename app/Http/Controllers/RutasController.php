@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ruta;
-use App\Tapa;
 use App\Bar;
 class RutasController extends Controller
 {
@@ -13,17 +12,7 @@ class RutasController extends Controller
      */
     public function index()
     {
-    }
-    public function search(Request $request, $searchKey=null){
-        if($searchKey == null){
-            $searchKey = $request->input('search');
-        }
-        $ruta = Ruta::where('nombre','LIKE','%'. $searchKey .'%')->first();
-        $bar = $ruta->related();
-        return view('layouts.ruta', compact(
-            'ruta',
-            'bar'
-        ));
+
     }
     /**
      * Show the form for creating a new resource.

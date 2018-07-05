@@ -1,9 +1,8 @@
 @extends('templates.master')
-@include('layouts.app')
 @section('main')
    <div class="main-container animate fade-slide-down">
        <div class="indexTitle">
-           <h1 class="title animate-pop-in">{!! nl2br('LAS RUTAS DE LA TAPA <br/><span class="reinventadas">REINVENTADAS</span>') !!}</h1>
+           <h1 class="mainTitle animate-pop-in">{!! nl2br('LAS RUTAS DE LA TAPA <br/><span class="reinventadas">REINVENTADAS</span>') !!}</h1>
        </div>
        <div class="searchBar animate-pop-in">
 
@@ -16,7 +15,6 @@
            <div class="errorMessage">{{ $error }}</div>
            {!! Form::close() !!}
    </div>
-
 
 @endsection
        @include('layouts.modalLogin')

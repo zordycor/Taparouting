@@ -3,7 +3,7 @@
 
 
 <div class="cont">
-    <a href=""><i class="fas fa-angle-left"></i></a>
+    <a href="/"><i class="fas fa-angle-left"></i></a>
     <div class="firstBlock">
         <div class="bg fade-slide-left"></div>
         <div class="row">

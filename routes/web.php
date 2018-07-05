@@ -17,7 +17,7 @@ use App\Tapa;
 Route::put('/ruta/edit', 'RutasController@edit');
 Route::post('/ruta', 'RutasController@store');
 Route::get('/search/{searchKey}', 'RutasController@search');
-Route::get('/search', 'RutasController@search');
+Route::get('/search', 'MainController@search');
 Route::post('/barupdate', 'BaresController@update');
 
 
@@ -26,7 +26,7 @@ Route::get('/', function () {
     $rutas = DB::table('rutas')->get();
     $bares = DB::table('bares')->get();
     $error = '';
-    return view('welcome', compact('rutas', 'bares', 'error'));
+    return view('welcome', compact('rutas', 'bares','error'));
 
 });
 

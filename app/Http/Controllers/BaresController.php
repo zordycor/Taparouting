@@ -15,11 +15,7 @@ class BaresController extends Controller
     {
     }
     public function search(Request $request, $searchKey=null){
-        if($searchKey == null){
-            $searchKey = $request->input('search');
-        }
-        $bar = Bar::where('nombre','LIKE','%'. $searchKey .'%')->first();
-        return view('layouts.bar', compact('bar'));
+
     }
     /**
      * Show the form for creating a new resource.
