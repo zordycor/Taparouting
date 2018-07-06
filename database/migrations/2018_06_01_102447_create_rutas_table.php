@@ -23,8 +23,6 @@ class CreateRutasTable extends Migration
             $table->string('price2');
             $table->string('price3');
             $table->mediumText('description');
-            $table->string('navcolor');
-            $table->string('textcolor');
             $table->string('img');
 
             $table->timestamps();

@@ -1,55 +1,40 @@
 <h2>Panel de configuración</h2>
 <hr>
-<form action="/rutaupdate/{{ $ruta->id }}" method="post">
-    {{ csrf_field() }}
-
-    <div class="form-group">
-        <input type="text" class="form-control" id="name" value="{{ $ruta->nombre }}" placeholder="Nombre de la ruta">
+{!! Form::model($ruta, ['action' => ['RutasController@update', $ruta->id], 'files' => true]) !!}
+    {{Form::token()}}
+    <div class="form-control">
+        {!! Form::label('nombre', 'Nombre de la ruta') !!}
+        {!! Form::text('nombre') !!}
     </div>
-
-    <div class="row">
-        <div class="form-group">
-            <label>Inicio de la ruta</label>
-            <input type="date" class="form-control" value="{{ $ruta->inicio }}" id="inicio" placeholder="">
-        </div>
-        <div class="form-group">
-            <label>Fin de la ruta</label>
-            <input type="date" class="form-control" value="{{ $ruta->fin }}" id="inicio" placeholder="">
-        </div>
+    <div class="form-control">
+        {!! Form::label('inicio', 'Fecha inicio') !!}
+        {!!Form::date('inicio')!!}
     </div>
-
-    <label>Premios:</label>
-    <div class="row">
-        <div class="form-group">
-            <input type="number" class="form-control prices" id="first" value="{{ $ruta->price1 }}" placeholder="Primer premio">
-        </div>
-        <div class="form-group">
-            <input type="number" class="form-control prices" id="second" value="{{ $ruta->price2 }}" placeholder="Segundo premio">
-        </div>
-        <div class="form-group">
-            <input type="number" class="form-control prices" id="third" value="{{ $ruta->price3 }}" placeholder="Tercer premio">
-        </div>
+    <div class="form-control">
+    {!!Form::label('fin', 'Fecha fin')!!}
+    {!!Form::date('fin')!!}
     </div>
-
-    <div class="form-group">
-        <label>Descripción:</label>
-        <input type="text" class="form-control" id="description" value="{{ $ruta->description }}" placeholder="Descripción de la ruta">
+    <div class="form-control">
+    {!!Form::label('price1', 'Primer premio')!!}
+    {!!Form::text('price1')!!}
     </div>
-
-    <div class="form-group">
-        <label>Elige el color de tu ruta:</label>
-        <input type="color" name="colorSelect" value="{{ $ruta->navcolor }}">
+    <div class="form-control">
+    {!!Form::label('price2', 'Segundo premio')!!}
+    {!!Form::text('price2')!!}
     </div>
-    <div class="form-group">
-        <label>Elige el color del texto:</label>
-        <input type="color" name="colorSelect" value="{{ $ruta->textcolor }}">
+    <div class="form-control">
+    {!!Form::label('price3', 'Tercer premio')!!}
+    {!!Form::text('price3')!!}
     </div>
-
-    <div class="form-group">
-        <label>Logo de la ruta</label>
-        <input type="file" class="form-control" id="archivo" value="{{ $ruta->img }}" placeholder="">
+    <div class="form-control">
+    {!!Form::label('description', 'Descripción')!!}
+    {!! Form::textarea('description') !!}
     </div>
-
-    <button type="submit" class="btn btn-primary">Guardar cambios</button>
-
-</form>
+    <div class="form-control">
+    {!!Form::label('img', 'Imagen de fondo')!!}
+    {!!Form::file('img')!!}
+    </div>
+    <div class="form-control">
+    {!!Form::submit('Guardar cambios')!!}
+    </div>
+{!! Form::close() !!}

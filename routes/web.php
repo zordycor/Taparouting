@@ -14,7 +14,7 @@ use App\Bar;
 |
 */
 
-Route::put('/ruta/edit', 'RutasController@edit');
+Route::post('/ruta/edit', 'RutasController@edit');
 Route::post('/ruta', 'RutasController@store');
 Route::get('/search/{searchKey}', 'RutasController@search');
 Route::get('/search', 'MainController@search');
@@ -51,10 +51,10 @@ Route::get('/config', function () {
     }
 });
 
-Route::get('/ruta/{localidad}/config', function ($localidad) {
-    $ruta = DB::table('rutas')->where('localidad',$localidad)->first();
-    $bares = $ruta->related();
-    return view('layouts.config', compact('ruta', 'bares'));
+Route::get('/bar/{id}', function ($id) {
+    $bar = DB::table('bares')->where('id',$id)->first();
+    $rutas = DB::table('rutas')->get();
+    return view('layouts.barConfig', compact('rutas', 'bar'));
 });
 
 Auth::routes();

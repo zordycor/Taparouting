@@ -66,8 +66,19 @@ class RutasController extends Controller
         $user = $this->__getUser();
 
         if($ruta->user_id === $user['id']){
-            $ruta->update($request->all());
-            return view('layouts.ruta');
+            $values = $request->all();
+            $ruta->nombre = $values['nombre'];
+            $ruta->inicio = $values['inicio'];
+            $ruta->fin = $values['fin'];
+            $ruta->price1 = $values['price1'];
+            $ruta->price2 = $values['price2'];
+            $ruta->price3 = $values['price3'];
+            $ruta->description = $values['description'];
+//            if($request->hasFile($values['img'])){
+//                $ruta->img = $values['img'];
+//            }
+            $ruta->save();
+            return view('welcome');
         }
     }
     /**
