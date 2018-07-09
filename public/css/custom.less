@@ -59,6 +59,7 @@
 
     .form-control{
       font-size: 1.5rem;
+      width: 100%;
 
       &::placeholder{
         color: black;
@@ -79,7 +80,7 @@
         color: lightgray;
         position: absolute;
         top: 14px;
-        left: 9px;
+        left: 25px;
         font-size: 22px;
       }
 
@@ -162,7 +163,7 @@
     .row{
       display: flex;
       position: relative;
-      margin: 0;
+      margin-top: 10rem;
       opacity: 1;
       justify-content: flex-end;
 
@@ -171,7 +172,7 @@
         z-index: -1;
         background-color: white;
         opacity: .4;
-        padding-top: 15rem;
+        padding-top: 10rem;
         width: 100%;
         border-radius: 5px;
         height: 100%;
@@ -189,21 +190,92 @@
   }
 }
 
+.contRes{
+  display: block;
+  position: relative;
+
+  .fa-angle-left{
+    margin: 0.5rem 2rem;
+  }
+
+  .resultsTitle{
+    margin-left: 1rem;
+  }
+
+  li{
+    list-style: none;
+
+    a{
+      text-decoration: underline;
+    }
+  }
+}
+
+.rowForm{
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.form-control{
+  font-size: 1rem;
+  width: auto;
+  margin: 1rem;
+
+  label{
+    margin-right: 1rem;
+  }
+
+  #nombre{
+    width: 300px;
+  }
+
+  #inicio,#fin{
+    width: 150px;
+  }
+
+  #description{
+    display: block;
+  }
+}
+
 .rowText, .rowData{
-background: rgba(211,211,211,0.5);
+  background: rgba(211,211,211,0.5);
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  width: 50%;
+  position: absolute;
+  border-radius: 40px;
+  right: 0;
+}
+
+.allText{
+
 }
 
 .rowData{
-  margin-top: 5rem;
+  margin-top: 10rem;
 }
 
 .title{
   position: relative;
   margin-right: 3rem;
-  margin-top: 5rem;
+
+  a{
+    text-decoration: none;
+    color: darkgrey;
+  }
 
   h1{
     font-size: 3rem;
+  }
+}
+
+.titleResults{
+  h1{
+    margin-left: 1rem;
   }
 }
 
@@ -233,8 +305,8 @@ background: rgba(211,211,211,0.5);
 
 .datosBar{
   text-align: right;
-  width: 100%;
-  margin-right: 1rem;
+  width: 60%;
+  margin-right: 3rem;
 }
 
 .nav-link{
@@ -252,6 +324,16 @@ img.tapaimg{
   text-align: center;
   width: 49%;
   max-width: 600px;
+}
+
+img.barView{
+  z-index: -1;
+  margin: 0;
+  width: 65%;
+  max-width: none;
+  max-height: 400px;
+  object-fit: cover;
+  position: absolute;
 }
 
 img.fullimg{
@@ -298,10 +380,22 @@ img.fullimg{
   border: 0;
   border-radius: 0;
 
-  .card-img-top{
-    max-height: 300px;
-    object-fit: cover;
-    object-position: bottom;
+
+  .card-img{
+    overflow: hidden;
+
+    .card-img-top{
+      max-height: 300px;
+      object-fit: cover;
+      object-position: bottom;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      transition: transform .5s;
+
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
   }
 }
 
@@ -315,6 +409,7 @@ img.fullimg{
 
 .fa-angle-left{
   font-size: 50px;
+  top: 0;
   position: absolute;
   margin: 2rem;
   z-index: 1;
@@ -324,17 +419,17 @@ img.fullimg{
   border: 0;
   text-align: center;
   width: 100%;
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .card-deck .card{
   min-width: 300px;
   max-width: 300px;
   margin: 1rem;
-}
-
-.card-img-top{
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 .filtros{
@@ -374,6 +469,11 @@ a{
 
 .results{
   margin: 4rem;
+}
+
+.contBar{
+  justify-content: unset;
+  margin-top: 10rem;
 }
 
 // ANIMATIONS

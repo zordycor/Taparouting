@@ -53,8 +53,8 @@ Route::get('/config', function () {
 
 Route::get('/bar/{id}', function ($id) {
     $bar = DB::table('bares')->where('id',$id)->first();
-    $rutas = DB::table('rutas')->get();
-    return view('layouts.barConfig', compact('rutas', 'bar'));
+    $ruta = DB::table('rutas')->where('id',$bar->ruta_id)->first();
+    return view('layouts.bar', compact('ruta', 'bar'));
 });
 
 Auth::routes();

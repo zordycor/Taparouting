@@ -40,7 +40,7 @@
 
 
 <script>
-    function initialize() {
+    function mapInit() {
         var address = '{{ $ruta->localidad }}';
         var addresses = [@foreach($bares as $bar)"{{$bar->direccion}}"@if($loop->last == false),@endif @endforeach];
 

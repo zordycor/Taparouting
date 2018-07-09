@@ -8,8 +8,6 @@ $(document).ready(function(){
         $( '.signin' ).modal({keyboard: true});
     });
 
-    readURL();
-
 });
 
 function file(input){

@@ -1,15 +1,17 @@
 @extends('templates.master')
 @section('main')
 
-    <div class="cont">
-        <div class="bg" style="background: url('/img/{{ $bar->tapaimg }}') center center no-repeat; background-size: cover;" ></div>
+    <div class="cont contBar">
+        <img class="tapaimg barView" src="/img/{{ $bar->tapaimg }}" alt="">
         <a href=""><i class="fas fa-angle-left"></i></a>
+
         <div class="row rowText">
             <div class="title">
                 <h2>{{$bar->tapanom}}</h2>
-                <h4 style="color: darkgrey;">{{ $bar->ruta_id }}</h4>
+                <h4><a href="/ruta/{{ $ruta->localidad }}">{{ $ruta->nombre }}</a></h4>
             </div>
         </div>
+
         <div class="row rowData">
             <div class="datosBar">
                 <h4>{{ $bar->nombre }}</h4>
