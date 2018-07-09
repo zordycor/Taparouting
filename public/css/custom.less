@@ -399,6 +399,19 @@ img.fullimg{
   }
 }
 
+.statsHome{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+  margin-top: 5rem;
+  font-size: 20px;
+
+  .odometer{
+    font-size: 50px;
+  }
+}
+
 .card-body {
   padding: 1rem 0 0;
 
@@ -474,6 +487,16 @@ a{
 .contBar{
   justify-content: unset;
   margin-top: 10rem;
+}
+
+.marquee{
+  animation: marquee 15s linear infinite;
+  width: 200px;
+  height: 200px;
+
+  &:hover{
+    animation-play-state: paused;
+  }
 }
 
 // ANIMATIONS

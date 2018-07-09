@@ -24,3 +24,11 @@ function file(input){
         input.files = $('#image').src;
     }
 }
+
+setTimeout(function(){
+    $('.odometer').html(2000);
+}, 3000);
+
+setTimeout(function(){
+    $('.odometer2').innerHTML = 456;
+}, 1000);

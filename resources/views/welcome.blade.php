@@ -13,9 +13,35 @@
                <input type="search" id="search" class="form-control" name="search" placeholder="Busca rutas por localidad">
            </div>
            {!! Form::close() !!}
-   </div>
 
+       </div>
+
+       <div class="marquee">
+           @foreach($rutas as $ruta)
+           <div class="marqueeRuta">
+               {{ date('d', strtotime($ruta->inicio)) }}/{{ date('M', strtotime($ruta->inicio)) }}
+               {{ $ruta -> nombre }}
+           </div>
+           @endforeach
+       </div>
+
+       <div class="statsHome">
+           <div class="data">
+               <div id="odometer odometer1" class="odometer">0</div>
+               <div class="text">Bares registrados</div>
+           </div>
+           <div class="data">
+               <div class="odometer odometer2">0</div>
+               <div class="text">Rutas disponibles</div>
+           </div>
+           <div class="data">
+                <div class="odometer odometer3">0</div>
+               <div class="text">Usuarios en activo</div>
+           </div>
+       </div>
+   </div>
 @endsection
-       @include('layouts.modalLogin')
-       @include('layouts.modalSignin')
+
+@include('layouts.modalLogin')
+@include('layouts.modalSignin')
 

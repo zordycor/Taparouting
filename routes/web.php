@@ -26,8 +26,9 @@ Route::post('/rutaupdate/{id}', 'RutasController@update');
 Route::get('/', function () {
     $rutas = DB::table('rutas')->get();
     $bares = DB::table('bares')->get();
+    $users = DB::table('users')->get();
     $error = '';
-    return view('welcome', compact('rutas', 'bares','error'));
+    return view('welcome', compact('rutas', 'bares','error','users'));
 
 });
 
