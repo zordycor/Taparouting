@@ -10,7 +10,7 @@
 
            <div class="search animate-pop-in">
                <span class="fa fa-search searchIcon"></span>
-               <input type="search" id="search" class="form-control" name="search" placeholder="Busca rutas por localidad">
+               <input type="search" id="search" class="form-control" name="search" placeholder="Busca rutas o bares">
            </div>
            {!! Form::close() !!}
 
@@ -18,11 +18,16 @@
 
        <div class="marquee">
            @foreach($rutas as $ruta)
+           @if($loop->index < 3)
            <div class="marqueeRuta">
-               {{ date('d', strtotime($ruta->inicio)) }}/{{ date('M', strtotime($ruta->inicio)) }}
-               {{ $ruta -> nombre }}
+               <a href="/ruta/{{$ruta->localidad}}">
+                   <strong>{{ date('d', strtotime($ruta->inicio)) }}/{{ date('m', strtotime($ruta->inicio)) }}</strong>
+                   {{ $ruta -> nombre }}
+               </a>
            </div>
+           @endif
            @endforeach
+           ...
        </div>
 
        <div class="statsHome">

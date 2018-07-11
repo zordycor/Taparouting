@@ -70,6 +70,7 @@
       text-indent: 30px;
       background-color: rgba(0, 0, 0, .2);
       border: 0;
+      font-style: italic;
 
       &:focus{
         background-color: rgba(255, 255, 255, 1);
@@ -87,8 +88,7 @@
   }
 
   .searchBar{
-    width: 100%;
-    max-width: 330px;
+    margin-right: 1rem;
     margin-top: 1rem;
     animation-delay: .8s;
   }
@@ -184,7 +184,7 @@
 
       .prizes{
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-end;
       }
     }
   }
@@ -262,6 +262,8 @@
 .title{
   position: relative;
   margin-right: 3rem;
+  width: 50%;
+  text-align: right;
 
   a{
     text-decoration: none;
@@ -425,7 +427,7 @@ img.fullimg{
   top: 0;
   position: absolute;
   margin: 2rem;
-  z-index: 1;
+  z-index: 1100;
 }
 
 .card{
@@ -490,17 +492,13 @@ a{
 }
 
 .marquee{
-  animation: marquee 15s linear infinite;
-  width: 200px;
+  color: black;
+  width: 300px;
   height: 200px;
-
-  &:hover{
-    animation-play-state: paused;
-  }
+  z-index: 1;
 }
 
 // ANIMATIONS
-
 
 @keyframes pop-in {
   0% {
