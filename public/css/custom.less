@@ -10,11 +10,6 @@
 }
 
 .main-container{
-  align-items: center;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   overflow: hidden;
   position: relative;
   transform-style: preserve-3d;
@@ -26,6 +21,16 @@
   height: 100vh;
   background-position: center;
   background-size: cover;
+
+  &--index{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transform-style: preserve-3d;
+    perspective: 100px;
+  }
 
 
   &:before{
@@ -59,7 +64,7 @@
 
     .form-control{
       font-size: 1.5rem;
-      width: 100%;
+      width: 85%;
 
       &::placeholder{
         color: black;
@@ -88,7 +93,7 @@
   }
 
   .searchBar{
-    margin-right: 1rem;
+    margin-right: -.5rem;
     margin-top: 1rem;
     animation-delay: .8s;
   }
@@ -111,7 +116,7 @@
   border-color:transparent;
   box-shadow:none;
   color: black;
-  animation-delay: 2s;
+  animation-delay: .8s;
   display: flex;
 }
 
@@ -166,16 +171,9 @@
       margin-top: 10rem;
       opacity: 1;
       justify-content: flex-end;
-
-      .bg-row{
-        position: absolute;
-        z-index: -1;
-        background-color: white;
-        opacity: .4;
-        padding-top: 10rem;
-        width: 100%;
-        border-radius: 5px;
-        height: 100%;
+      
+      h4{
+        color: #505050;
       }
 
       &.column{
@@ -190,17 +188,20 @@
   }
 }
 
+.bg-row{
+  position: absolute;
+  z-index: -1;
+  background-color: white;
+  opacity: .4;
+  padding-top: 10rem;
+  width: 100%;
+  border-radius: 5px;
+  height: 100%;
+}
+
 .contRes{
   display: block;
   position: relative;
-
-  .fa-angle-left{
-    margin: 0.5rem 2rem;
-  }
-
-  .resultsTitle{
-    margin-left: 1rem;
-  }
 
   li{
     list-style: none;
@@ -265,6 +266,21 @@
   width: 50%;
   text-align: right;
 
+  &.resultsGroup{
+    margin-left: 3rem;
+    color: #505050;
+    text-align: left;
+  }
+
+  &.titleResults{
+    margin: 1rem 0;
+    text-align: left;
+    h1{
+      margin-left: 1rem;
+      color: black;
+    }
+  }
+
   a{
     text-decoration: none;
     color: darkgrey;
@@ -275,10 +291,10 @@
   }
 }
 
-.titleResults{
-  h1{
-    margin-left: 1rem;
-  }
+.resultsValues{
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  list-style: none;
 }
 
 .greyBack{
@@ -290,6 +306,10 @@
   max-width: 90px;
   top: 0;
   left: 30rem;
+
+  &:last-child{
+    margin-right: 0;
+  }
 
   &--silver{
     top: 1.5rem;
@@ -303,6 +323,10 @@
   .fas{
     margin-left: .5rem;
   }
+}
+
+.fa-angle-right{
+  margin-right: 1rem;
 }
 
 .datosBar{
@@ -427,7 +451,8 @@ img.fullimg{
   top: 0;
   position: absolute;
   margin: 2rem;
-  z-index: 1100;
+  z-index: 999999;
+
 }
 
 .card{
@@ -483,7 +508,8 @@ a{
 }
 
 .results{
-  margin: 4rem;
+  margin-top: 10rem;
+  position: relative;
 }
 
 .contBar{
@@ -496,6 +522,7 @@ a{
   width: 300px;
   height: 200px;
   z-index: 1;
+  animation-delay: 1.2s;
 }
 
 // ANIMATIONS

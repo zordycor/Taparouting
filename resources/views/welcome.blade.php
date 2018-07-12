@@ -1,6 +1,6 @@
 @extends('templates.master')
 @section('main')
-   <div class="main-container animate fade-slide-down">
+   <div class="main-container main-container--index animate fade-slide-down">
        <div class="indexTitle">
            <h1 class="mainTitle animate-pop-in">{!! nl2br('LAS RUTAS DE LA TAPA <br/><span class="reinventadas">REINVENTADAS</span>') !!}</h1>
        </div>
@@ -16,7 +16,7 @@
 
        </div>
 
-       <div class="marquee">
+       <div class="marquee animate-pop-in">
            @foreach($rutas as $ruta)
            @if($loop->index < 3)
            <div class="marqueeRuta">
