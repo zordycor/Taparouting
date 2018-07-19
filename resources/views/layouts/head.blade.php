@@ -24,8 +24,8 @@
     <script src="/js/main.js"></script>
 
     <!-- Odometer -->
-    <link rel="stylesheet" href="odometer-theme-default.css" />
-    <script src="odometer.js"></script>
+    <link rel="stylesheet" href="/css/odometer-theme-default.css" />
+    <script src="/js/odometer.js"></script>
 
     <!-- Animations -->
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">

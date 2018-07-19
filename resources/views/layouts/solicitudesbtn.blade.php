@@ -1,6 +1,6 @@
 <div class="card-body buttons">
-    <a href="#" class="btn btn-success accept">Aceptar</a>
-    <a href="#" class="btn btn-danger deny">Denegar</a>
+    <button class="btn btn-success accept">Aceptar</button>
+    <button class="btn btn-danger deny">Denegar</button>
 </div>
 
 <script>

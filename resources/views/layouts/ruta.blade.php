@@ -1,6 +1,8 @@
 @extends('templates.master')
 @section('main')
-
+@php
+    $conf=false;
+@endphp
 
 <div class="cont">
     <a href="/"><i class="fas fa-angle-left"></i></a>
@@ -42,9 +44,9 @@
 <script>
     function mapInit() {
         var address = '{{ $ruta->localidad }}';
-        var addresses = [@foreach($bares as $bar)"{{$bar->direccion}}"@if($loop->last == false),@endif @endforeach];
-
+        var addresses = [@foreach($bares as $bar)"{{$bar->nombre}}, {{$bar->direccion}}"@if($loop->last == false),@endif @endforeach];
         var geocoder = new google.maps.Geocoder();
+
         geocoder.geocode({
             'address': address
         }, function(results, status) {

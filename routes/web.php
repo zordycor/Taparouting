@@ -43,12 +43,14 @@ Route::get('/config', function () {
 
     if($user['role'] == '1'){
         $bar = DB::table('bares')->where('user_id',$user->id)->first();
-        return view('layouts.barConfig', compact('user','bar'));
+        $rutas = DB::table('rutas')->get();
+        return view('layouts.barConfig', compact('user','bar','rutas'));
     }
 
     if($user['role'] == '0'){
         $ruta = DB::table('rutas')->where('user_id',$user->id)->first();
-        return view('layouts.rutaConfig', compact('user','ruta'));
+        $bares = DB::table('bares')->where('ruta_id',$ruta->id)->get();
+        return view('layouts.rutaConfig', compact('user','ruta','bares'));
     }
 });
 

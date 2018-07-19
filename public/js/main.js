@@ -26,9 +26,13 @@ function file(input){
 }
 
 setTimeout(function(){
-    $('.odometer').html(2000);
-}, 3000);
+    $('.odometer').html(134);
+}, 1000);
 
 setTimeout(function(){
-    $('.odometer2').innerHTML = 456;
-}, 1000);
+    $('.odometer2').html(48);
+}, 2000);
+
+setTimeout(function(){
+    $('.odometer3').html(372);
+}, 3000);

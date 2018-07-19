@@ -6,7 +6,9 @@
         <div class="bg-row"></div>
         <div class="title titleResults"><h1>Resultados</h1></div>
         @if(!count($rutas) && !count($bares))
-            <div class="noResults">No se han encontrado resultados</div>
+        <div class="title resultsGroup">
+            <h2 class="noResults">No se han encontrado resultados</h2>
+        </div>
         @endif
 
         @if(count($rutas))

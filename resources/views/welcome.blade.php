@@ -16,6 +16,7 @@
 
        </div>
 
+        @if(!Auth::check())
        <div class="marquee animate-pop-in">
            @foreach($rutas as $ruta)
            @if($loop->index < 3)
@@ -29,6 +30,7 @@
            @endforeach
            ...
        </div>
+       @endif
 
        <div class="statsHome">
            <div class="data">
