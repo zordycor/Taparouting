@@ -21,5 +21,5 @@ class Bar extends Model
 
     protected $fillable = [
         'nombre', 'direccion', 'horarios', 'tapanom', 'tapadesc', 'tapaimg'
-    ];
+    ]; 
 }
