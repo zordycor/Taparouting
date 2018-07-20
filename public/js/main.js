@@ -26,13 +26,13 @@ function file(input){
 }
 
 setTimeout(function(){
-    $('.odometer').html(134);
+    $('.odometer').html($('.count1').val());
 }, 1000);
 
 setTimeout(function(){
-    $('.odometer2').html(48);
-}, 2000);
+    $('.odometer2').html($('.count2').val());
+}, 1500);
 
 setTimeout(function(){
-    $('.odometer3').html(372);
-}, 3000);
+    $('.odometer3').html($('.count3').val());
+}, 2000);

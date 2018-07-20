@@ -32,6 +32,10 @@
        </div>
        @endif
 
+       <input type="hidden" class="count1" value="{{$bares->count()}}">
+       <input type="hidden" class="count2" value="{{$rutas->count()}}">
+       <input type="hidden" class="count3" value="{{$users->count()}}">
+
        <div class="statsHome">
            <div class="data">
                <div id="odometer odometer1" class="odometer">0</div>
