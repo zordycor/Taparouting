@@ -33,7 +33,7 @@
                 {{ $ruta->description }}
             </div>
 
-            <div id="map_canvas"></div>
+            <div id="map_canvas" class="ruta"></div>
         </div>
     </div>
     @include('layouts.cards')
@@ -43,28 +43,61 @@
 
 <script>
     function mapInit() {
-        var address = '{{ $ruta->localidad }}';
-        var addresses = [@foreach($bares as $bar)"{{$bar->nombre}}, {{$bar->direccion}}"@if($loop->last == false),@endif @endforeach];
+        var i;
+
+        var map = new google.maps.Map(
+            document.getElementById("map_canvas"));
+
+        var bounds = new google.maps.LatLngBounds();
+        var addresses = [
+            @foreach($bares as $bar)
+                "{{$bar->nombre}}, {{$bar->direccion}}"
+
+                @if($loop->last == false),@endif
+            @endforeach];
+
         var geocoder = new google.maps.Geocoder();
+        var infowindow = new google.maps.InfoWindow();
 
-        geocoder.geocode({
-            'address': address
-        }, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                var Lat = results[0].geometry.location.lat();
-                var Lng = results[0].geometry.location.lng();
-                var myOptions = {
-                    zoom: 15,
-                    center: new google.maps.LatLng(Lat, Lng)
-                };
+        for(i in addresses){
+            geocoder.geocode({
+                'address': addresses[i]
 
-                var map = new google.maps.Map(
-                    document.getElementById("map_canvas"), myOptions);
+            }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var Lat = results[0].geometry.location.lat();
+                    var Lng = results[0].geometry.location.lng();
+                    var LatLng = new google.maps.LatLng(Lat, Lng);
 
-            } else {
-                alert("Something got wrong " + status);
-            }
-        });
+                    var marker = new google.maps.Marker({
+                        position: LatLng,
+                        map: map
+                    });
+
+                    @foreach($bares as $bar)
+
+                        var content = "<h1>{{$bar->nombre}}</h1>"+
+                            "<p><b>{{$bar->tapanom}}</b></p>"+
+                            "<p><b>{{$bar->direccion}}</b></p>";
+
+                        google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                            return function() {
+                                map.setCenter(marker.getPosition())
+                                infowindow.setContent(content);
+                                infowindow.open(map,marker);
+                            };
+                        })(marker,content,infowindow));
+
+                    @endforeach
+
+                    bounds.extend(marker.position);
+                    map.fitBounds(bounds);
+
+                } else {
+                    alert("Something got wrong " + status);
+                }
+            });
+        }
     }
 
 </script>
