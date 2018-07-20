@@ -6,5 +6,7 @@
 @include('layouts.app')
 @section('main')
 @show
+@include('layouts.modalLogin')
+@include('layouts.modalSignin')
 </body>
 </html>

@@ -58,6 +58,3 @@
    </div>
 @endsection
 
-@include('layouts.modalLogin')
-@include('layouts.modalSignin')
-
