@@ -120,9 +120,15 @@
   display: flex;
 }
 
-.navbar-expand-md .navbar-nav .dropdown-menu-right{
+.navbar-expand-md, .navbar-nav, .dropdown-menu-right{
   right: auto;
   text-align: center;
+  width: 100%;
+}
+
+.navbar-nav, .navbar-expand-md{
+  display: flex;
+  justify-content: flex-end;
 }
 
 .cont{
@@ -376,12 +382,6 @@ img.fullimg{
   width: 100%;
 }
 
-
-.notLoggedNav{
-  width: 36%;
-  max-width: 220px;
-}
-
 .littleMap{
   position: absolute;
   right: 3rem;
@@ -397,8 +397,7 @@ img.fullimg{
 }
 
 .nav-item{
-  width: 100%;
-  text-align: left;
+  text-align: right;
 }
 
 .card-columns{
@@ -440,6 +439,10 @@ img.fullimg{
 
   .odometer{
     font-size: 50px;
+  }
+
+  a{
+    color: white;
   }
 }
 

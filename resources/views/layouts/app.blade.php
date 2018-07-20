@@ -13,7 +13,6 @@
                 <li class="nav-item">
                     <div class="nav-link js-login">Iniciar sesión</div>
                 </li>
-                <hr>
                 <li class="nav-item">
                     <div class="nav-link js-signin">Registrarse</div>
                 </li>
@@ -25,8 +24,6 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/config">Panel de control</a>
-
-                        <hr>
 
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
