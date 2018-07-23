@@ -1,12 +1,13 @@
 @extends('templates.master')
 @section('main')
 <a href="/"><i class="fas fa-angle-left"></i></a>
-<div class="main-container main-container--config">
+<div class="main-container main-container--config bgbar">
     <div class="cont-config">
         <div class="title">
             <h1>Panel de configuración</h1>
         </div>
         <hr>
+
         {!! Form::model($bar, ['action' => ['BaresController@update', $bar->id], 'files' => true]) !!}
         {{Form::token()}}
         <div class="rowForm">
@@ -34,6 +35,10 @@
         <div class="form-control">
             {!!Form::label('tapadesc', 'Descripción de la tapa')!!}
             {!!Form::text('tapadesc')!!}
+        </div>
+        <div class="form-control">
+            {!!Form::label('ruta_id', 'Ruta de la tapa')!!}
+            {!!Form::select('ruta_id', $rutas)!!}
         </div>
         <div class="form-control submit">
             {!!Form::submit('Guardar cambios', ['class' => 'btn btn-success'])!!}
