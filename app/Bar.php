@@ -9,6 +9,7 @@ class Bar extends Model
 
     protected $table = 'bares';
 
+
     public function rutas(){
         return $this->belongsTo('App\Ruta');
     }

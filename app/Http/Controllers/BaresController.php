@@ -26,7 +26,8 @@ class BaresController extends Controller
      */
     public function create()
     {
-        return view('layouts.create');
+      $rutas = Ruta::pluck('nombre');
+      return view('layouts.barCreate', compact('rutas'));
     }
     /**
      * Store a newly created resource in storage.
@@ -36,6 +37,25 @@ class BaresController extends Controller
      */
     public function store(Request $request)
     {
+      $bar = new Bar(array(
+        'nombre' => $request->get('nombre'),
+        'direccion' => $request->get('direccion'),
+        'horarios' => $request->get('horarios'),
+        'tapanom' => $request->get('tapanom'),
+        'tapadesc' => $request->get('tapadesc'),
+        'tapaimg' => $request->get('tapaimg'),
+        'ruta_id' => $request->get('ruta_id'),
+        'user_id' => $request->get(Auth::user()->id)
+
+      ));
+
+      $bar->save();
+
+      // Mail delivery logic goes here
+
+      $request->session()->flash('Bar guardado correctamente!');
+
+      return view('welcome');
     }
     /**
      * Display the specified resource.

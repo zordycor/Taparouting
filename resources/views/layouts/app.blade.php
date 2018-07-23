@@ -23,9 +23,11 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @if(false)
                         @if(!Auth::user()->role)<a class="dropdown-item" href="/ruta/{{ $ruta -> localidad }}">Mi ruta</a>@endif
                         @if(Auth::user()->role)<a class="dropdown-item" href="/bar/{{ $bar -> id }}">Mi bar</a>@endif
                         <a class="dropdown-item" href="/config">Panel de control</a>
+                        @endif
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">

@@ -66,6 +66,9 @@ Route::get('/barupdate/{id}', function ($id) {
   return view('layouts.bar', compact('ruta', 'bar'));
 });
 
+Route::get('/barCreate', 'BaresController@create')->name('layouts.barCreate');
+Route::post('/barStore', 'BaresController@store')->name('layouts.barStore');
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
