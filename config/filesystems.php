@@ -62,8 +62,54 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+
+            'cache' => [
+              'store' => 'memcached',
+              'expire' => 600,
+              'prefix' => 'cache-prefix',
+            ],
         ],
 
+    ],
+
+    'ftp' => [
+      'driver'   => 'ftp',
+      'host'     => 'ftp.example.com',
+      'username' => 'your-username',
+      'password' => 'your-password',
+
+      // Optional FTP Settings...
+      // 'port'     => 21,
+      // 'root'     => '',
+      // 'passive'  => true,
+      // 'ssl'      => true,
+      // 'timeout'  => 30,
+    ],
+
+    'sftp' => [
+      'driver' => 'sftp',
+      'host' => 'example.com',
+      'username' => 'your-username',
+      'password' => 'your-password',
+
+      // Settings for SSH key based authentication...
+      // 'privateKey' => '/path/to/privateKey',
+      // 'password' => 'encryption-password',
+
+      // Optional SFTP Settings...
+      // 'port' => 22,
+      // 'root' => '',
+      // 'timeout' => 30,
+    ],
+
+    'rackspace' => [
+      'driver'    => 'rackspace',
+      'username'  => 'your-username',
+      'key'       => 'your-key',
+      'container' => 'your-container',
+      'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
+      'region'    => 'IAD',
+      'url_type'  => 'publicURL',
     ],
 
 ];

@@ -16,6 +16,7 @@
                     <div class="datosBar">
                         <h3>{{ $bar->nombre }}</h3>
                         <h3>{{ $bar->direccion }}</h3>
+                        <h3>{{ $bar->telefono }}</h3>
                         <h4>{{ $bar->horarios }}</h4>
                     </div>
                 </div>

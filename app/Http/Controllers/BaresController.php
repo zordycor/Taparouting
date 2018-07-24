@@ -1,10 +1,11 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\Ruta;
 use App\Tapa;
 use App\Bar;
 use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class BaresController extends Controller
 {
@@ -26,7 +27,7 @@ class BaresController extends Controller
      */
     public function create()
     {
-      $rutas = Ruta::pluck('nombre');
+      $rutas = Ruta::pluck('nombre','id');
       return view('layouts.barCreate', compact('rutas'));
     }
     /**
@@ -37,25 +38,31 @@ class BaresController extends Controller
      */
     public function store(Request $request)
     {
+      $user_id = Auth::user()->id;
+
       $bar = new Bar(array(
         'nombre' => $request->get('nombre'),
         'direccion' => $request->get('direccion'),
         'horarios' => $request->get('horarios'),
+        'telefono' => $request->get('telefono'),
         'tapanom' => $request->get('tapanom'),
         'tapadesc' => $request->get('tapadesc'),
-        'tapaimg' => $request->get('tapaimg'),
         'ruta_id' => $request->get('ruta_id'),
-        'user_id' => $request->get(Auth::user()->id)
+        'user_id' => $user_id
 
       ));
 
       $bar->save();
+      $imageName = $bar->id . '.' .
+        $request->file('tapaimg')->getClientOriginalExtension();
 
-      // Mail delivery logic goes here
+      $request->file('tapaimg')->move(
+        base_path() . '/public/images', $imageName
+      );
 
-      $request->session()->flash('Bar guardado correctamente!');
+      $id = $bar->id;
 
-      return view('welcome');
+      return redirect()->route('bar', array('id' => $id));
     }
     /**
      * Display the specified resource.

@@ -26,6 +26,10 @@
         {!! Form::label('direccion', 'Dirección') !!}
         {!!Form::text('direccion')!!}
       </div>
+        <div class="form-control">
+         {!! Form::label('telefono', 'Teléfono') !!}
+         {!!Form::text('telefono')!!}
+        </div>
       <div class="form-control">
         {!!Form::label('tapaimg', 'Foto de la tapa')!!}
         {!!Form::file('tapaimg')!!}

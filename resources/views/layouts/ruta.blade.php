@@ -74,21 +74,17 @@
                         map: map
                     });
 
-                    @foreach($bares as $bar)
+                    var content = "<h1>{{$bar->nombre}}</h1>"+
+                        "<p><b>{{$bar->tapanom}}</b></p>"+
+                        "<p><b>{{$bar->direccion}}</b></p>";
 
-                        var content = "<h1>{{$bar->nombre}}</h1>"+
-                            "<p><b>{{$bar->tapanom}}</b></p>"+
-                            "<p><b>{{$bar->direccion}}</b></p>";
-
-                        google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
-                            return function() {
-                                map.setCenter(marker.getPosition())
-                                infowindow.setContent(content);
-                                infowindow.open(map,marker);
-                            };
-                        })(marker,content,infowindow));
-
-                    @endforeach
+                    google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                        return function() {
+                            map.setCenter(marker.getPosition())
+                            infowindow.setContent(content);
+                            infowindow.open(map,marker);
+                        }
+                    })(marker,content,infowindow));
 
                     bounds.extend(marker.position);
                     map.fitBounds(bounds);

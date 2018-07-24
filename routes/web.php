@@ -58,7 +58,8 @@ Route::get('/bar/{id}', function ($id) {
     $bar = DB::table('bares')->where('id',$id)->first();
     $ruta = DB::table('rutas')->where('id',$bar->ruta_id)->first();
     return view('layouts.bar', compact('ruta', 'bar'));
-});
+})->name('bar');
+
 
 Route::get('/barupdate/{id}', function ($id) {
   $bar = DB::table('bares')->where('id',$id)->first();

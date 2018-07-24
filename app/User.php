@@ -18,6 +18,10 @@ class User extends Authenticatable
         'role','name', 'email', 'password'
     ];
 
+    public function bar(){
+      return $this->belongsTo('App\Bar');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

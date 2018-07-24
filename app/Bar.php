@@ -14,6 +14,10 @@ class Bar extends Model
         return $this->belongsTo('App\Ruta');
     }
 
+    public function user(){
+      return $this->belongsTo('App\User');
+    }
+
     public function related(){
         $ruta = \DB::table('rutas')->where('id',$this->ruta_id)->nombre;
 
@@ -21,6 +25,6 @@ class Bar extends Model
     }
 
     protected $fillable = [
-        'nombre', 'direccion', 'horarios', 'tapanom', 'tapadesc', 'tapaimg', 'ruta_id'
+        'nombre', 'direccion', 'horarios', 'tapanom', 'tapadesc', 'tapaimg', 'ruta_id', 'telefono', 'user_id'
     ]; 
 }
