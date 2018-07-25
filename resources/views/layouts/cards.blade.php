@@ -1,11 +1,4 @@
-<!--<div class="filtros">-->
-<!--    <span class="active">TODO</span>-->
-<!--    <span>VEGANO</span>-->
-<!--    <span>PARA CELIACOS</span>-->
-<!--    <span>DULCE</span>-->
-<!--    <span>SALADO</span>-->
-<!--</div>-->
-
+@if($bares->count() > 0)
 <div class="row row--cards">
     @foreach($bares as $bar)
     <div class="col-sm-4 card-full">
@@ -13,15 +6,10 @@
             <a href="/bar/{{ $bar->id }}">
                 <div class="card-cont">
                     <div class="card-img">
-                        <img class="card-img-top" src="/img/{{$bar->tapaimg}}" alt="Card image cap">
+                        <img class="card-img-top" src="https://s3.eu-west-3.amazonaws.com/taparouting/tapas/{{ $bar->id }}.jpg" alt="Card image cap">
                     </div>
 
                     <div class="card-body">
-    <!--                    <div class="etiquetas">-->
-    <!--                        <span>VEGANO</span>-->
-    <!--                        <span>DULCE</span>-->
-    <!--                    </div>-->
-
                         <h4 class="card-title"><strong>{{$bar->tapanom}}</strong></h4>
                         <hr class="cardSeparator">
                         <p class="card-bar">{{$bar->nombre}}</p>
@@ -36,3 +24,9 @@
     </div>
     @endforeach
 </div>
+@else
+<div class="noBares">
+    <h2 class="text-center">Esta ruta no tiene bares asignados</h2>
+</div>
+
+@endif

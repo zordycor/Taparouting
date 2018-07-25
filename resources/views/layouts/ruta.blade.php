@@ -7,7 +7,7 @@
 <div class="cont">
     <a href="/"><i class="fas fa-angle-left"></i></a>
     <div class="firstBlock">
-        <div class="bg fade-slide-left"></div>
+        <div class="bg fade-slide-left" style="background: url('https://s3.eu-west-3.amazonaws.com/taparouting/rutas/{{ $ruta->localidad }}.jpg') center center no-repeat; background-size: cover;"></div>
         <div class="row">
             <div class="bg-row"></div>
             <div class="title">
@@ -42,7 +42,9 @@
 
 
 <script>
+
     function mapInit() {
+
         var i;
 
         var map = new google.maps.Map(
@@ -74,9 +76,9 @@
                         map: map
                     });
 
-                    var content = "<h1>{{$bar->nombre}}</h1>"+
+                    var content = "@if($ruta->related()->count() > 0)<h1>{{$bar->nombre}}</h1>"+
                         "<p><b>{{$bar->tapanom}}</b></p>"+
-                        "<p><b>{{$bar->direccion}}</b></p>";
+                        "<p><b>{{$bar->direccion}}</b></p>@endif";
 
                     google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
                         return function() {

@@ -28,7 +28,16 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/barCreate';
+    protected $redirectTo = '/';
+
+    protected function redirectTo()
+    {
+      if (auth()->user()->role) {
+        return '/barCreate';
+      }else{
+        return '/rutaCreate';
+      }
+    }
 
     /**
      * Create a new controller instance.

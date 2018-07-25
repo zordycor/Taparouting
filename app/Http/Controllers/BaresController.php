@@ -53,16 +53,16 @@ class BaresController extends Controller
       ));
 
       $bar->save();
+
       $imageName = $bar->id . '.' .
         $request->file('tapaimg')->getClientOriginalExtension();
 
-      $request->file('tapaimg')->move(
-        base_path() . '/public/images', $imageName
-      );
+      $request->tapaimg->storeAs('tapas', $imageName);
 
       $id = $bar->id;
 
-      return redirect()->route('bar', array('id' => $id));
+      return \Redirect::route('bar',
+        array('id' => $id))->with('message', 'Bar añadido!');
     }
     /**
      * Display the specified resource.

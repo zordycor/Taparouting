@@ -11,7 +11,7 @@
                 <h1>
                     {{ $bar->tapanom }}
                 </h1>
-                <h4>{{$ruta->nombre}}</h4>
+                <h4><a href="/ruta/{{$ruta->localidad}}">{{$ruta->nombre}}</a></h4>
                 <div class="rowData">
                     <div class="datosBar">
                         <h3>{{ $bar->nombre }}</h3>
@@ -27,7 +27,7 @@
             <div class="description">
                 {{ $bar->tapadesc }}
             </div>
-            <img class="tapaimg barView" src="/img/{{ $bar->tapaimg }}" alt="">
+            <img class="tapaimg barView" src="https://s3.eu-west-3.amazonaws.com/taparouting/tapas/{{ $bar->id }}.jpg" alt="">
         </div>
         <div id="map_canvas"></div>
     </div>

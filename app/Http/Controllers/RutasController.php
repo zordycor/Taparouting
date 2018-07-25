@@ -1,8 +1,10 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\Ruta;
+use App\Tapa;
 use App\Bar;
+use Auth;
+use Illuminate\Http\Request;
 class RutasController extends Controller
 {
     /**
@@ -21,7 +23,7 @@ class RutasController extends Controller
      */
     public function create()
     {
-        return view('layouts.create');
+      return view('layouts.rutaCreate');
     }
     /**
      * Store a newly created resource in storage.
@@ -31,6 +33,32 @@ class RutasController extends Controller
      */
     public function store(Request $request)
     {
+      $user_id = Auth::user()->id;
+
+      $ruta = new Ruta(array(
+        'nombre' => $request->get('nombre'),
+        'localidad' => $request->get('localidad'),
+        'inicio' => $request->get('inicio'),
+        'fin' => $request->get('fin'),
+        'price1' => $request->get('price1'),
+        'price2' => $request->get('price2'),
+        'price3' => $request->get('price3'),
+        'description' => $request->get('description'),
+        'user_id' => $user_id
+
+      ));
+
+      $ruta->save();
+
+      $imageName = $ruta->localidad . '.' .
+        $request->file('img')->getClientOriginalExtension();
+
+      $request->img->storeAs('rutas', $imageName);
+
+      $localidad = $ruta->localidad;
+
+      return \Redirect::route('ruta',
+        array('localidad' => $localidad))->with('message', 'Ruta añadida!');
     }
     /**
      * Display the specified resource.

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => 's3',
 
     /*
     |--------------------------------------------------------------------------
@@ -57,17 +57,11 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
-
-            'cache' => [
-              'store' => 'memcached',
-              'expire' => 600,
-              'prefix' => 'cache-prefix',
-            ],
+            'key' => 'AKIAJ3FNGX6DV2ABWU4Q',
+            'secret' => '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',
+            'region' => 'eu-west-3',
+            'bucket' => 'taparouting',
+            'url' => 'http://taparouting.s3.amazonaws.com',
         ],
 
     ],

@@ -36,7 +36,7 @@ Route::get('/ruta/{localidad}', function ($localidad) {
     $ruta = Ruta::where('localidad',$localidad)->first();
     $bares = $ruta->related();
     return view('layouts.ruta', compact('ruta', 'bares'));
-});
+})->name('ruta');
 
 Route::get('/config', function () {
     $user = Auth::user();
@@ -69,6 +69,9 @@ Route::get('/barupdate/{id}', function ($id) {
 
 Route::get('/barCreate', 'BaresController@create')->name('layouts.barCreate');
 Route::post('/barStore', 'BaresController@store')->name('layouts.barStore');
+
+Route::get('/rutaCreate', 'RutasController@create')->name('layouts.rutaCreate');
+Route::post('/rutaStore', 'RutasController@store')->name('layouts.rutaStore');
 
 Auth::routes();
 

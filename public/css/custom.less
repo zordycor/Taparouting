@@ -138,12 +138,14 @@
   min-height: 100vh;
 
   .firstBlock{
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 
     .bg{
       position: absolute;
       z-index: -2;
-      background: url('/img/fondopuzol.jpg') center center;
       background-repeat: no-repeat;
       background-size: cover;
       opacity: .4;
@@ -171,6 +173,7 @@
       margin-top: 10rem;
       opacity: 1;
       justify-content: flex-end;
+      margin-right: 0;
 
       &.column{
         flex: 50%;
@@ -187,10 +190,11 @@
 
 #map_canvas{
   height: 400px;
-  width: 100%;
-  margin: 5rem 0;
   z-index: 5;
-  flex: 0 0 700px;
+  flex: 0 1 700px;
+  position: relative;
+  overflow: hidden;
+
 
   &.ruta{
     margin: 2rem;
@@ -623,7 +627,10 @@ a{
 }
 
 .row--cards{
-  margin: 0 1rem;
+  margin: 0rem 1rem;
+  padding-bottom: 2rem;
+  position: absolute;
+  top: 50rem;
 }
 
 .main-container--config{
