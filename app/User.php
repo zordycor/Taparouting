@@ -22,6 +22,17 @@ class User extends Authenticatable
       return $this->belongsTo('App\Bar');
     }
 
+  public function barRelated(){
+    $bar = \DB::table('bares')->where('user_id',$this->id)->first();
+
+    return $bar;
+  }
+
+  public function rutaRelated(){
+    $ruta = \DB::table('rutas')->where('user_id',$this->id)->first();
+
+    return $ruta;
+  }
     /**
      * The attributes that should be hidden for arrays.
      *

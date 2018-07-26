@@ -15,9 +15,10 @@
                     {{ $ruta->nombre }}
                 </h1>
                 <h4>Del
-                    {{ date('d', strtotime($ruta->inicio)) }} al
+                    {{ date('d', strtotime($ruta->inicio)) }} de
+                    {{ date('M', strtotime($ruta->inicio)) }} al
                     {{ date('d', strtotime($ruta->fin)) }} de
-                    {{ date('M', strtotime($ruta->inicio)) }}
+                    {{ date('M', strtotime($ruta->fin)) }}
                 </h4>
 
                 <div class="prizes">

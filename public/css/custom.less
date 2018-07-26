@@ -18,7 +18,7 @@
   background-position: 0 0;
   background-repeat: no-repeat;
   background-image: url("/img/background2.png");
-  height: 100vh;
+  min-height: 100vh;
   background-position: center;
   background-size: cover;
 
@@ -432,6 +432,7 @@ img.fullimg{
   color: white;
   margin-top: 5rem;
   font-size: 20px;
+  z-index: 1;
 
   .odometer{
     font-size: 50px;
@@ -522,6 +523,7 @@ a{
 
 .results{
   margin-top: 10rem;
+  padding-bottom: 2rem;
   position: relative;
 }
 
@@ -546,6 +548,11 @@ a{
   height: 200px;
   z-index: 1;
   animation-delay: 1.2s;
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
 }
 
 // ANIMATIONS
@@ -631,10 +638,20 @@ a{
   padding-bottom: 2rem;
   position: absolute;
   top: 50rem;
+
+  &--empty{
+    width: 100%;
+
+    .noBares{
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
 }
 
 .main-container--config{
   height: auto;
+  min-height: 700px;
 }
 
 .bgbar{

@@ -16,7 +16,6 @@
 
        </div>
 
-        @if(!Auth::check())
            <div class="marquee animate-pop-in">
                @foreach($rutas as $ruta)
                @if($loop->index < 3)
@@ -28,7 +27,7 @@
                </div>
                @endif
                @endforeach
-               ...
+               <a href="/searchAll?search=rutas">Ver más...</a>
            </div>
 
            <input type="hidden" class="count1" value="{{$bares->count()}}">
@@ -37,24 +36,22 @@
 
            <div class="statsHome">
                <div class="data">
-                   <div id="odometer odometer1" class="odometer">0</div>
-                   <div class="text">Bares registrados</div>
+                   <a href="/searchAll?search=bares">
+                       <div id="odometer odometer1" class="odometer">0</div>
+                       <div class="text">Bares registrados</div>
+                   </a>
                </div>
                <div class="data">
-                   <div class="odometer odometer2">0</div>
-                   <div class="text">Rutas disponibles</div>
+                   <a href="/searchAll?search=rutas">
+                       <div class="odometer odometer2">0</div>
+                       <div class="text">Rutas disponibles</div>
+                   </a>
                </div>
                <div class="data">
                    <div class="odometer odometer3">0</div>
                    <div class="text">Usuarios en activo</div>
                </div>
            </div>
-
-       @else
-           <div class="statsHome">
-                <div class="animate-pop-in"><a href="/config">Accede a tu panel de control</a></div>
-           </div>
-       @endif
    </div>
 @endsection
 

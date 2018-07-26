@@ -11,7 +11,7 @@ class Ruta extends Model
 
     protected $fillable = [
         'nombre','localidad','inicio','fin','price1','price2',
-        'price3','description'
+        'price3','description', 'user_id'
 
     ];
 

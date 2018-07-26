@@ -25,8 +25,10 @@
     @endforeach
 </div>
 @else
-<div class="noBares">
-    <h2 class="text-center">Esta ruta no tiene bares asignados</h2>
+<div class="row row--cards row--cards--empty">
+    <div class="noBares">
+        <h2 class="text-center">Esta ruta no tiene bares asignados</h2>
+    </div>
 </div>
 
 @endif

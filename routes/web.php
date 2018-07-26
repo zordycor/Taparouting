@@ -2,6 +2,7 @@
 
 use App\Ruta;
 use App\Bar;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,19 +17,25 @@ use App\Bar;
 
 Route::post('/ruta/edit', 'RutasController@edit');
 Route::post('/ruta', 'RutasController@store');
-Route::get('/search/{searchKey}', 'RutasController@search');
 Route::get('/search', 'MainController@search');
+Route::get('/searchAll', 'MainController@searchAll');
 Route::post('/barupdate/{id}', 'BaresController@update');
 Route::post('/rutaupdate/{id}', 'RutasController@update');
 
 
 
 Route::get('/', function () {
-    $rutas = DB::table('rutas')->get();
-    $bares = DB::table('bares')->get();
-    $users = DB::table('users')->get();
+
+    $rutas = Ruta::orderBy('inicio', 'asc')->get();
+    $bares = Bar::get();
+    $users = User::get();
     $error = '';
-    return view('welcome', compact('rutas', 'bares','error','users'));
+
+    $user = Auth::user()->id ?? null;
+
+    $ruta = Ruta::where('user_id', $user);
+    $bar = Bar::where('user_id', $user);
+    return view('welcome', compact('rutas', 'bares','error','users','user','ruta','bar'));
 
 });
 
