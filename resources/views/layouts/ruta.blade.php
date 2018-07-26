@@ -40,6 +40,10 @@
             <div class="noBares">
                 <h2 class="text-center">Esta ruta no tiene bares asignados</h2>
             </div>
+        @else
+        <div class="noBares">
+            <h4 class="text-center"><i class="fas fa-angle-down"></i>Bares<i class="fas fa-angle-down"></i></h4>
+        </div>
         @endif
     </div>
 
@@ -70,7 +74,7 @@ function mapInit() {
 
         }, function(results, status) {
             if (status == 'OK') {
-                map.setCenter(results[0].geometry.location);
+                map.panTo(results[0].geometry.location);
             } else {
                 alert("Something got wrong " + status);
             }
@@ -108,11 +112,13 @@ function mapInit() {
 
                 google.maps.event.addListener(marker,'click', (function(marker,content{{$bar->id}},infowindow){
                     return function() {
-                        map.setCenter(marker.getPosition())
+                        map.panTo(marker.getPosition())
                         infowindow.setContent(content{{$bar->id}});
                         infowindow.open(map,marker);
                     }
                 })(marker,content{{$bar->id}},infowindow));
+
+                google.maps.event.addListener(map, "click", function(event) {infowindow.close();});
 
                 bounds.extend(marker.position);
                 map.fitBounds(bounds);

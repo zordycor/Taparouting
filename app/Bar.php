@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
 
 class Bar extends Model
 {
 
+    use Favoriteable;
     protected $table = 'bares';
 
 

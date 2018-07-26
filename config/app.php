@@ -144,6 +144,7 @@ return [
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
+        ChristianKuri\LaravelFavorite\FavoriteServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         LaravelQRCode\Providers\QRCodeServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,

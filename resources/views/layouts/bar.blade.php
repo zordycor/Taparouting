@@ -9,15 +9,19 @@
             <div class="bg-row"></div>
             <div class="title">
                 <h1>
+                    <i class="far fa-heart"></i>
+                    @if(false)<i class="fas fa-heart"></i>@endif
                     {{ $bar->tapanom }}
                 </h1>
                 <h4><a href="/ruta/{{$ruta->localidad}}">{{$ruta->nombre}}</a></h4>
                 <div class="rowData">
                     <div class="datosBar">
-                        <h3>{{ $bar->nombre }}</h3>
-                        <h3>{{ $bar->direccion }}</h3>
-                        <h3>{{ $bar->telefono }}</h3>
-                        <h4>{{ $bar->horarios }}</h4>
+                        <h3>{{ $bar->nombre }}<i class="fas fa-beer"></i></h3>
+                        <h3>{{ $bar->direccion }}<i class="fas fa-map-marker-alt"></i></h3>
+                        <h3><a href="tel:{{ $bar->telefono }}">{{ $bar->telefono }}<i class="fas fa-phone"></i></a></h3>
+                        <div class="horarios">
+                            <h4>{{ $bar->horarios }}</h4>
+                        </div>
                     </div>
                 </div>
             </div>

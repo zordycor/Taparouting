@@ -136,12 +136,14 @@
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
+  position: absolute;
+  width: 100%;
+  top: 0;
 
   .firstBlock{
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
+    min-height: 100vh;
 
     .bg{
       position: absolute;
@@ -205,6 +207,7 @@
   flex: 0 1 700px;
   position: relative;
   overflow: hidden;
+  margin-bottom: 2rem;
 
 
   &.ruta{
@@ -344,20 +347,31 @@ h4{
   &--bronze{
     top: 3rem;
   }
+}
 
+.fas{
+  margin-left: 1rem;
+}
 
-  .fas{
-    margin-left: .5rem;
-  }
+.fa-heart{
+  margin-right: 2rem;
 }
 
 .fa-angle-right{
   margin-right: 1rem;
 }
 
+.fa-angle-down{
+  margin: 0 1rem;
+}
+
 .datosBar{
   text-align: right;
   margin-right: 1rem;
+}
+
+.horarios{
+  margin-top: 2rem;
 }
 
 .nav-link{
@@ -647,8 +661,7 @@ a{
 .row--cards{
   margin: 0rem 1rem;
   padding-bottom: 2rem;
-  position: absolute;
-  top: 50rem;
+  position: relative;
 }
 
 .main-container--config{
