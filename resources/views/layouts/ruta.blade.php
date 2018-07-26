@@ -36,68 +36,95 @@
 
             <div id="map_canvas" class="ruta"></div>
         </div>
+        @if($bares->count() == 0)
+            <div class="noBares">
+                <h2 class="text-center">Esta ruta no tiene bares asignados</h2>
+            </div>
+        @endif
     </div>
-    @include('layouts.cards')
+
+    @if($bares->count() > 0)
+        @include('layouts.cards')
+    @endif
 
 </div>
 
 
 <script>
 
-    function mapInit() {
+function mapInit() {
 
-        var i;
+    var i;
+    var geocoder = new google.maps.Geocoder();
+    var LatLng;
 
-        var map = new google.maps.Map(
-            document.getElementById("map_canvas"));
+    var map = new google.maps.Map(
+        document.getElementById("map_canvas"), {
+            zoom: 13
+        });
 
-        var bounds = new google.maps.LatLngBounds();
-        var addresses = [
-            @foreach($bares as $bar)
-                "{{$bar->nombre}}, {{$bar->direccion}}"
+    @if($bares->count() == 0)
 
-                @if($loop->last == false),@endif
-            @endforeach];
+        geocoder.geocode({
+            'address': "{{$ruta->localidad}}"
 
-        var geocoder = new google.maps.Geocoder();
+        }, function(results, status) {
+            if (status == 'OK') {
+                map.setCenter(results[0].geometry.location);
+            } else {
+                alert("Something got wrong " + status);
+            }
+        });
+
+
+
+    @else
+
+    var map = new google.maps.Map(
+        document.getElementById("map_canvas"));
+
+    var bounds = new google.maps.LatLngBounds();
+
+    @foreach($bares as $bar)
+        var address = "{{$bar->nombre}}, {{$bar->direccion}}"
+
+        var content{{$bar->id}} = "<h1>{{$bar->nombre}}</h1>"+
+            "<p><b>{{$bar->tapanom}}</b></p>"+
+            "<p><b>{{$bar->direccion}}</b></p>";
+
         var infowindow = new google.maps.InfoWindow();
 
-        for(i in addresses){
-            geocoder.geocode({
-                'address': addresses[i]
+        geocoder.geocode({
+            'address': address
 
-            }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var Lat = results[0].geometry.location.lat();
-                    var Lng = results[0].geometry.location.lng();
-                    var LatLng = new google.maps.LatLng(Lat, Lng);
+        }, function(results, status) {
+            if (status == 'OK') {
+                var LatLng = results[0].geometry.location;
 
-                    var marker = new google.maps.Marker({
-                        position: LatLng,
-                        map: map
-                    });
+                var marker = new google.maps.Marker({
+                    position: LatLng,
+                    map: map
+                });
 
-                    var content = "@if($ruta->related()->count() > 0)<h1>{{$bar->nombre}}</h1>"+
-                        "<p><b>{{$bar->tapanom}}</b></p>"+
-                        "<p><b>{{$bar->direccion}}</b></p>@endif";
+                google.maps.event.addListener(marker,'click', (function(marker,content{{$bar->id}},infowindow){
+                    return function() {
+                        map.setCenter(marker.getPosition())
+                        infowindow.setContent(content{{$bar->id}});
+                        infowindow.open(map,marker);
+                    }
+                })(marker,content{{$bar->id}},infowindow));
 
-                    google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
-                        return function() {
-                            map.setCenter(marker.getPosition())
-                            infowindow.setContent(content);
-                            infowindow.open(map,marker);
-                        }
-                    })(marker,content,infowindow));
+                bounds.extend(marker.position);
+                map.fitBounds(bounds);
 
-                    bounds.extend(marker.position);
-                    map.fitBounds(bounds);
+            } else {
+                alert("Something got wrong " + status);
+            }
+        });
 
-                } else {
-                    alert("Something got wrong " + status);
-                }
-            });
-        }
-    }
+        @endforeach
+    @endif
+}
 
 </script>
 

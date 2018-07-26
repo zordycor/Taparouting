@@ -1,4 +1,3 @@
-@if($bares->count() > 0)
 <div class="row row--cards">
     @foreach($bares as $bar)
     <div class="col-sm-4 card-full">
@@ -24,11 +23,3 @@
     </div>
     @endforeach
 </div>
-@else
-<div class="row row--cards row--cards--empty">
-    <div class="noBares">
-        <h2 class="text-center">Esta ruta no tiene bares asignados</h2>
-    </div>
-</div>
-
-@endif

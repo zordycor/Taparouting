@@ -157,6 +157,17 @@
     .descMap{
       display: flex;
       margin-top: 2rem;
+      justify-content: space-between;
+
+      @media(max-width: 1100px){
+        flex-direction: column;
+
+        #map_canvas{
+          margin: 0;
+          width: 100%;
+          flex: 0 1 400px;
+        }
+      }
 
       .description{
         margin: 2rem;
@@ -638,15 +649,6 @@ a{
   padding-bottom: 2rem;
   position: absolute;
   top: 50rem;
-
-  &--empty{
-    width: 100%;
-
-    .noBares{
-      width: 100%;
-      margin-top: 2rem;
-    }
-  }
 }
 
 .main-container--config{
@@ -683,6 +685,14 @@ input#tapanom{
   margin-left: 0;
 }
 
+.navbar.navbar-default.navbar-expand-md.fixed-top{
+  position: relative;
+}
+
 .fixed-top{
   left: unset;
+}
+
+.noBares{
+  margin-top: 2rem;
 }
