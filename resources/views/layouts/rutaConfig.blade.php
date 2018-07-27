@@ -2,6 +2,7 @@
 @section('main')
 @php
     $conf=true;
+
 @endphp
 
 <a href="/"><i class="fas fa-angle-left"></i></a>

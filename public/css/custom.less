@@ -318,6 +318,14 @@ h4{
   h1{
     font-size: 3rem;
   }
+
+  .unlike{
+    display: inline-block;
+  }
+
+  .like{
+    display: none;
+  }
 }
 
 .resultsValues{
@@ -564,6 +572,14 @@ a{
       width: 100%;
       height: 100%;
     }
+
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
   }
 }
 
@@ -699,7 +715,7 @@ input#tapanom{
 }
 
 .navbar.navbar-default.navbar-expand-md.fixed-top{
-  position: relative;
+  position: absolute;
 }
 
 .fixed-top{

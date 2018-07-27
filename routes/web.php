@@ -3,7 +3,6 @@
 use App\Ruta;
 use App\Bar;
 use App\User;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +24,6 @@ Route::post('/rutaupdate/{id}', 'RutasController@update');
 
 
 Route::get('/', function () {
-
     $rutas = Ruta::orderBy('inicio', 'asc')->get();
     $bares = Bar::get();
     $users = User::get();
@@ -56,7 +54,7 @@ Route::get('/config', function () {
 
     if($user['role'] == '0'){
         $ruta = DB::table('rutas')->where('user_id',$user->id)->first();
-        $bares = DB::table('bares')->where('ruta_id',$ruta->id)->get();
+        $bares = DB::table('bares')->where('ruta_id',$ruta->id)->where('aceptado',1)->get();
         return view('layouts.rutaConfig', compact('user','ruta','bares'));
     }
 });

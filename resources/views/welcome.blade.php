@@ -16,19 +16,21 @@
 
        </div>
 
-           <div class="marquee animate-pop-in">
-               @foreach($rutas as $ruta)
-               @if($loop->index < 3)
-               <div class="marqueeRuta">
-                   <a href="/ruta/{{$ruta->localidad}}">
-                       <strong>{{ date('d', strtotime($ruta->inicio)) }}/{{ date('m', strtotime($ruta->inicio)) }}</strong>
-                       {{ $ruta -> nombre }}
-                   </a>
-               </div>
-               @endif
-               @endforeach
-               <a href="/searchAll?search=rutas">Ver más...</a>
+
+       <div class="marquee animate-pop-in">
+           @foreach($rutas as $ruta)
+           @if($loop->index < 3)
+           <div class="marqueeRuta">
+               <a href="/ruta/{{$ruta->localidad}}">
+                   <strong>{{ date('d', strtotime($ruta->inicio)) }}/{{ date('m', strtotime($ruta->inicio)) }}</strong>
+                   {{ $ruta -> nombre }}
+               </a>
            </div>
+           @endif
+           @endforeach
+           <a href="/searchAll?search=rutas">Ver más...</a>
+       </div>
+
 
            <input type="hidden" class="count1" value="{{$bares->count()}}">
            <input type="hidden" class="count2" value="{{$rutas->count()}}">

@@ -8,6 +8,11 @@ $(document).ready(function(){
         $( '.signin' ).modal({keyboard: true});
     });
 
+    $('.js-fav').click(function(){
+        $( '.js-fav' ).toggleClass('far fas');
+
+    });
+
 });
 
 function file(input){

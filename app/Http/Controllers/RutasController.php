@@ -102,11 +102,9 @@ class RutasController extends Controller
             $ruta->price2 = $values['price2'];
             $ruta->price3 = $values['price3'];
             $ruta->description = $values['description'];
-//            if($request->hasFile($values['img'])){
-//                $ruta->img = $values['img'];
-//            }
+//
             $ruta->save();
-            return view('welcome');
+            return redirect()->action('DashboardController@index');
         }
     }
     /**

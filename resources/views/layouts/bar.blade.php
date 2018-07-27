@@ -3,14 +3,13 @@
 
 <div class="cont contBar">
     <a href="/"><i class="fas fa-angle-left"></i></a>
-    <div class="firstBlock">
+    <div class="firstBlock" unselectable="on">
         <div class="bg fade-slide-left"></div>
         <div class="row">
             <div class="bg-row"></div>
             <div class="title">
                 <h1>
-                    <i class="far fa-heart"></i>
-                    @if(false)<i class="fas fa-heart"></i>@endif
+                    @auth<i class="far fa-heart js-fav"></i>@endauth
                     {{ $bar->tapanom }}
                 </h1>
                 <h4><a href="/ruta/{{$ruta->localidad}}">{{$ruta->nombre}}</a></h4>

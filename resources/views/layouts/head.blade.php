@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <base href="http://localhost:8000" />
+    <base href="http://localhost" />
     <title>Taparouting</title>
     <!-- Bootstrap core CSS -->
 
