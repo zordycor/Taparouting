@@ -2,7 +2,7 @@
 @section('main')
 
 <div class="cont contBar">
-    <a href="/"><i class="fas fa-angle-left"></i></a>
+    <a href="{{ URL::previous() }}"><i class="fas fa-angle-left"></i></a>
     <div class="firstBlock" unselectable="on">
         <div class="bg fade-slide-left"></div>
         <div class="row">
@@ -36,6 +36,12 @@
     </div>
 
 <script>
+
+    $(document).ready(function(){
+        $('.js-fav').click(function(){
+            $( '.js-fav' ).toggleClass('far fas');
+        });
+    }
 
     function mapInit() {
         var address = '{{ $bar->nombre }}, {{ $bar->direccion }}';

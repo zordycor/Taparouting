@@ -5,7 +5,9 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left Side Of Navbar -->
-
+        <div class="leftSide fadeIn">
+            <span class="reinventadas reinventadas--navbar"><a href="/">Taparouting</a></span>
+        </div>
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto notLoggedNav">
             <!-- Authentication Links -->
@@ -23,10 +25,10 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        @if(!Auth::user()->role)
+                        @if(!Auth::user()->role && !Request::is('rutaCreate'))
                             <a class="dropdown-item" href="/ruta/{{Auth::user()->rutaRelated()->localidad}}">Mi ruta</a>
                         @endif
-                        @if(Auth::user()->role)
+                        @if(Auth::user()->role && !Request::is('barCreate'))
                             <a class="dropdown-item" href="/bar/{{Auth::user()->barRelated()->id }}">Mi bar</a>
                         @endif
                         <a class="dropdown-item" href="/config">Panel de control</a>
@@ -35,7 +37,7 @@
                                          document.getElementById('logout-form').submit();">
                             Desconectar
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="/logout" method="POST" style="display: none;">
                             @csrf
                         </form>
 

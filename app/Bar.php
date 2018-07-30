@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
+use Auth;
 
 class Bar extends Model
 {
@@ -24,6 +25,11 @@ class Bar extends Model
         $ruta = \DB::table('rutas')->where('id',$this->ruta_id)->nombre;
 
         return $ruta;
+    }
+
+    public function getBar(){
+      $bar = Bar::find($this->id);
+      return $bar;
     }
 
     protected $fillable = [

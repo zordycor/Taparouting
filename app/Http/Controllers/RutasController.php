@@ -57,7 +57,7 @@ class RutasController extends Controller
 
       $localidad = $ruta->localidad;
 
-      return \Redirect::route('ruta',
+      return redirect()->route('ruta',
         array('localidad' => $localidad))->with('message', 'Ruta añadida!');
     }
     /**

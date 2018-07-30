@@ -1,7 +1,7 @@
 @extends('templates.master')
 @section('main')
 <div class="main-container animate fade-slide-down">
-    <a href="/"><i class="fas fa-angle-left"></i></a>
+    <a href="{{ URL::previous() }}"><i class="fas fa-angle-left"></i></a>
     <div class="results">
         <div class="bg-row"></div>
         <div class="title titleResults"><h1>Resultados</h1></div>

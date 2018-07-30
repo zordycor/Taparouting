@@ -5,7 +5,7 @@
 @endphp
 
 <div class="cont">
-    <a href="/"><i class="fas fa-angle-left"></i></a>
+    <a href="{{ URL::previous() }}"><i class="fas fa-angle-left"></i></a>
     <div class="firstBlock">
         <div class="bg fade-slide-left" style="background: url('https://s3.eu-west-3.amazonaws.com/taparouting/rutas/{{ $ruta->localidad }}.jpg') center center no-repeat; background-size: cover;"></div>
         <div class="row">

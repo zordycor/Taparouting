@@ -2,7 +2,7 @@
 @section('main')
    <div class="main-container main-container--index animate fade-slide-down">
        <div class="indexTitle">
-           <h1 class="mainTitle animate-pop-in">{!! nl2br('LAS RUTAS DE LA TAPA <br/><span class="reinventadas">REINVENTADAS</span>') !!}</h1>
+           <h1 class="mainTitle animate-pop-in">{!! nl2br('LAS RUTAS DE LA TAPA <br/><span class="reinventadas">Reinventadas</span>') !!}</h1>
        </div>
        <div class="searchBar animate-pop-in">
 
@@ -20,12 +20,12 @@
        <div class="marquee animate-pop-in">
            @foreach($rutas as $ruta)
            @if($loop->index < 3)
-           <div class="marqueeRuta">
-               <a href="/ruta/{{$ruta->localidad}}">
-                   <strong>{{ date('d', strtotime($ruta->inicio)) }}/{{ date('m', strtotime($ruta->inicio)) }}</strong>
-                   {{ $ruta -> nombre }}
-               </a>
-           </div>
+           <a href="/ruta/{{$ruta->localidad}}">
+               <div class="marqueeRuta">
+                   <span class="date"><strong>{{ date('d', strtotime($ruta->inicio)) }}/{{ date('m', strtotime($ruta->inicio)) }}</strong></span>
+                   <span class="ruta">{{ $ruta -> nombre }}</span>
+               </div>
+           </a>
            @endif
            @endforeach
            <a href="/searchAll?search=rutas">Ver más...</a>

@@ -8,9 +8,12 @@ $(document).ready(function(){
         $( '.signin' ).modal({keyboard: true});
     });
 
-    $('.js-fav').click(function(){
-        $( '.js-fav' ).toggleClass('far fas');
+    $('.js-accept').click(function(){
+        addTapa();
+    });
 
+    $('.js-deny').click(function(){
+        cancelTapa();
     });
 
 });
@@ -28,6 +31,14 @@ function file(input){
     }else{
         input.files = $('#image').src;
     }
+}
+
+function addTapa() {
+
+}
+
+function cancelTapa() {
+    var id = '{{$bar->id}}';
 }
 
 setTimeout(function(){

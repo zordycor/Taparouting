@@ -1,6 +1,6 @@
 @extends('templates.master')
 @section('main')
-<a href="/"><i class="fas fa-angle-left"></i></a>
+<a href="{{ URL::previous() }}"><i class="fas fa-angle-left"></i></a>
 <div class="main-container main-container--config bgbar">
 <div class="cont-config">
 <div class="title">
