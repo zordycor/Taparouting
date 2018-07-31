@@ -78,6 +78,11 @@ Route::post('/barStore', 'BaresController@store')->name('layouts.barStore');
 Route::get('/rutaCreate', 'RutasController@create')->name('layouts.rutaCreate');
 Route::post('/rutaStore', 'RutasController@store')->name('layouts.rutaStore');
 
+Route::post('/toggleFav/{id}', function ($id){
+  $bar = DB::table('bares')->where('id',$id)->first();
+  $bar->addFavorite();
+});
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');

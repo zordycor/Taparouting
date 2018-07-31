@@ -608,6 +608,11 @@ a{
   .marqueeRuta{
     display: flex;
     justify-content: space-between;
+
+    .ruta{
+      width: 80%;
+      text-align: left;
+    }
   }
 }
 
@@ -704,6 +709,15 @@ a{
   height: 100vh;
 }
 
+.bgInfo{
+  img{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: .3;
+  }
+}
+
 .form-control label{
   display: block;
   font-weight: bold;
@@ -739,6 +753,12 @@ input#tapanom{
 
 .noBares{
   margin-top: 2rem;
+
+  .downBares{
+    position: absolute;
+    width: 100%;
+    bottom: 1rem;
+  }
 }
 
 @font-face {

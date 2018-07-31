@@ -42,7 +42,7 @@
             </div>
         @else
         <div class="noBares">
-            <h4 class="text-center"><i class="fas fa-angle-down"></i>Bares<i class="fas fa-angle-down"></i></h4>
+            <h4 class="text-center downBares"><i class="fas fa-angle-down"></i>Bares<i class="fas fa-angle-down"></i></h4>
         </div>
         @endif
     </div>
@@ -93,8 +93,10 @@ function mapInit() {
         var address = "{{$bar->nombre}}, {{$bar->direccion}}"
 
         var content{{$bar->id}} = "<h1>{{$bar->nombre}}</h1>"+
+            "<div class='bgInfo'><img src='/img/CasaBayarri.jpg' alt=''></div>"+
             "<p><b>{{$bar->tapanom}}</b></p>"+
-            "<p><b>{{$bar->direccion}}</b></p>";
+            "<p><b>{{$bar->direccion}}</b></p>"+
+            "<p><b><a href='/bar/{{$bar->id}}'>Más info.</a></b></p>";
 
         var infowindow = new google.maps.InfoWindow();
 
