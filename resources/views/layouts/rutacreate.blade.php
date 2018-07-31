@@ -13,7 +13,7 @@
   <li>{{ $error }}</li>
   @endforeach
 </ul>
-    {!! Form::open(['route' => 'layouts.rutaStore', 'files' => true]) !!}
+    {!! Form::open(['route' => 'layouts.rutastore', 'files' => true]) !!}
     {{Form::token()}}
     <div class="rowForm">
       <div class="form-control">

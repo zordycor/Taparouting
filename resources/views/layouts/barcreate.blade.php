@@ -15,7 +15,7 @@
       </ul>
 
 
-      {!! Form::open(['route' => 'layouts.barStore', 'files' => true]) !!}
+      {!! Form::open(['route' => 'layouts.barstore', 'files' => true]) !!}
     {{Form::token()}}
     <div class="rowForm">
       <div class="form-control">

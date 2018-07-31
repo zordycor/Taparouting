@@ -33,10 +33,12 @@ class RegisterController extends Controller
     protected function redirectTo()
     {
       if (auth()->user()->role) {
-        return '/barCreate';
+        $redirectTo = '/barcreate';
       }else{
-        return '/rutaCreate';
+        $redirectTo = '/rutacreate';
       }
+
+      return $redirectTo;
     }
 
     /**

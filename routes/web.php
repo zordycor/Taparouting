@@ -49,13 +49,13 @@ Route::get('/config', function () {
     if($user['role'] == '1'){
         $bar = DB::table('bares')->where('user_id',$user->id)->first();
         $rutas = Ruta::pluck('nombre','id');
-        return view('layouts.barConfig', compact('user','bar','rutas'));
+        return view('layouts.barconfig', compact('user','bar','rutas'));
     }
 
     if($user['role'] == '0'){
         $ruta = DB::table('rutas')->where('user_id',$user->id)->first();
         $bares = DB::table('bares')->where('ruta_id',$ruta->id)->where('aceptado',1)->get();
-        return view('layouts.rutaConfig', compact('user','ruta','bares'));
+        return view('layouts.rutaconfig', compact('user','ruta','bares'));
     }
 });
 
@@ -72,13 +72,13 @@ Route::get('/barupdate/{id}', function ($id) {
   return view('layouts.bar', compact('ruta', 'bar'));
 });
 
-Route::get('/barCreate', 'BaresController@create')->name('layouts.barCreate');
-Route::post('/barStore', 'BaresController@store')->name('layouts.barStore');
+Route::get('/barcreate', 'BaresController@create')->name('layouts.barcreate');
+Route::post('/barstore', 'BaresController@store')->name('layouts.barstore');
 
-Route::get('/rutaCreate', 'RutasController@create')->name('layouts.rutaCreate');
-Route::post('/rutaStore', 'RutasController@store')->name('layouts.rutaStore');
+Route::get('/rutacreate', 'RutasController@create')->name('layouts.rutacreate');
+Route::post('/rutastore', 'RutasController@store')->name('layouts.rutastore');
 
-Route::post('/toggleFav/{id}', function ($id){
+Route::post('/togglefav/{id}', function ($id){
   $bar = DB::table('bares')->where('id',$id)->first();
   $bar->addFavorite();
 });

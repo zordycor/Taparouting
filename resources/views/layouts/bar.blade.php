@@ -44,7 +44,7 @@
     function favBar($id) {
         $('.js-fav').toggleClass('far','fas')
         $.ajax({
-            url: '/toggleFav/'+$id,
+            url: '/togglefav/'+$id,
             type: 'POST',
             success: function(result){
                 console.log(result);

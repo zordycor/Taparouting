@@ -6,7 +6,7 @@
 
             <div class="card-body">
                 <form method="POST" action="/login">
-                    @csrf
+                    {{ csrf_field() }}
 
                     <div class="form-group row">
                         <label for="email" class="col-md-3 col-form-label text-md-left">Email</label>

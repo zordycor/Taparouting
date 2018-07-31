@@ -25,10 +25,10 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        @if(!Auth::user()->role && !Request::is('rutaCreate'))
+                        @if(!Auth::user()->role && !Request::is('rutacreate'))
                             <a class="dropdown-item" href="/ruta/{{Auth::user()->rutaRelated()->localidad}}">Mi ruta</a>
                         @endif
-                        @if(Auth::user()->role && !Request::is('barCreate'))
+                        @if(Auth::user()->role && !Request::is('barcreate'))
                             <a class="dropdown-item" href="/bar/{{Auth::user()->barRelated()->id }}">Mi bar</a>
                         @endif
                         <a class="dropdown-item" href="/config">Panel de control</a>

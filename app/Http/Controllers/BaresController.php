@@ -28,7 +28,7 @@ class BaresController extends Controller
     public function create()
     {
       $rutas = Ruta::pluck('nombre','id');
-      return view('layouts.barCreate', compact('rutas'));
+      return view('layouts.barcreate', compact('rutas'));
     }
     /**
      * Store a newly created resource in storage.

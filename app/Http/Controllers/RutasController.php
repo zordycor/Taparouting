@@ -23,7 +23,7 @@ class RutasController extends Controller
      */
     public function create()
     {
-      return view('layouts.rutaCreate');
+      return view('layouts.rutacreate');
     }
     /**
      * Store a newly created resource in storage.
