@@ -37,7 +37,7 @@ Route::get('/', function () {
 
 });
 
-Route::get('/ruta/{localidad}', function ($localidad) {
+Route::get('/ruta/{localidad}/', function ($localidad) {
     $ruta = Ruta::where('localidad',$localidad)->first();
     $bares = $ruta->related();
     return view('layouts.ruta', compact('ruta', 'bares'));
@@ -59,30 +59,36 @@ Route::get('/config', function () {
     }
 });
 
-Route::get('/bar/{id}', function ($id) {
+Route::get('/bar/{id}/', function ($id) {
     $bar = DB::table('bares')->where('id',$id)->first();
     $ruta = DB::table('rutas')->where('id',$bar->ruta_id)->first();
     return view('layouts.bar', compact('ruta', 'bar'));
 })->name('bar');
 
 
-Route::get('/barupdate/{id}', function ($id) {
+Route::get('/barupdate/{id}/', function ($id) {
   $bar = DB::table('bares')->where('id',$id)->first();
   $ruta = DB::table('rutas')->where('id',$bar->ruta_id)->first();
   return view('layouts.bar', compact('ruta', 'bar'));
 });
 
-Route::get('/barcreate', 'BaresController@create')->name('layouts.barcreate');
-Route::post('/barstore', 'BaresController@store')->name('layouts.barstore');
+Route::get('/barcreate/', 'BaresController@create')->name('barcreate');
+Route::post('/barstore/', 'BaresController@store')->name('barstore');
 
-Route::get('/rutacreate', 'RutasController@create')->name('layouts.rutacreate');
-Route::post('/rutastore', 'RutasController@store')->name('layouts.rutastore');
+Route::get('/rutacreate/', 'RutasController@create')->name('rutacreate');
+Route::post('/rutastore/', 'RutasController@store')->name('rutastore');
 
-Route::post('/togglefav/{id}', function ($id){
+Route::post('/togglefav/{id}/', function ($id){
   $bar = DB::table('bares')->where('id',$id)->first();
   $bar->addFavorite();
 });
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard/', 'DashboardController@index');
+
+
+Route::get('/cleancache', function () {
+  exec('php artisan cache:clear');
+  Session::flush();
+});
