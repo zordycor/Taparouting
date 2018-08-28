@@ -89,7 +89,6 @@
   }
 
   .searchBar{
-    margin-right: -.5rem;
     margin-top: 1rem;
     animation-delay: .8s;
   }
@@ -256,7 +255,8 @@
   }
 }
 
-h4{
+h3, h4{
+  z-index: 10;
   color: #505050;
 }
 
@@ -376,6 +376,7 @@ h4{
 
 .fa-heart{
   margin-right: 2rem;
+  cursor: pointer;
 }
 
 .fa-angle-right{
@@ -444,6 +445,62 @@ img.fullimg{
 
 .card-columns{
   margin: 3rem;
+}
+
+.votecont{
+  button {
+    margin: 3rem;
+  }
+
+  .chart{
+    font-weight: bold;
+    margin-left: 2rem;
+
+    .greyBack{
+      background-color: rgba(255,255,255,.2);
+      border-radius: 15px;
+      margin-right: 1rem;
+    }
+
+    .chartPosition{
+      margin-left: 5rem;
+    }
+
+    .chartPosition0{
+      font-size: 2rem;
+
+      .fas{
+        color: gold;
+        margin-right: 1rem;
+      }
+    }
+
+    .chartPosition1{
+      font-size: 1.5rem;
+
+      .greyBack{
+        margin-left: .8rem;
+      }
+
+      .fas{
+        color: silver;
+        margin-right: 1rem;
+      }
+    }
+
+    .chartPosition2{
+      font-size: 1rem;
+
+      .greyBack{
+        margin-left: 1rem;
+      }
+
+      .fas{
+        color: saddlebrown;
+        margin-right: 1rem;
+      }
+    }
+  }
 }
 
 .card-cont{
@@ -564,7 +621,7 @@ a{
   }
 
   .card-body{
-    padding: 0;
+    padding: 1rem;
   }
 }
 
@@ -597,12 +654,101 @@ a{
   }
 }
 
+.cardList{
+  width: 100%;
+  margin-bottom: 1rem;
+
+  .buttons{
+    display: block;
+    margin-top: 1rem;
+  }
+
+  a{
+    color: black;
+    text-decoration: none;
+    display: flex;
+  }
+
+  .card-img{
+    max-width: 200px;
+    display: inline-block;
+    flex: 1;
+
+    .fas{
+      position: absolute;
+      z-index: 1;
+      font-size: 50px;
+
+      &.fa-check{
+        color: green;
+      }
+
+      &.fa-times{
+        color: red;
+      }
+    }
+  }
+
+  .card-body{
+    padding: 0 0 0 1rem;
+    flex: 1;
+
+    .separator{
+      border: 1px black solid;
+      margin: 0 1rem;
+    }
+  }
+
+  @media(max-width: 910px){
+    .card-img{
+      max-width: none;
+
+      .card-img-top{
+        max-width: none;
+        width: 100%;
+        max-height: 300px;
+        object-position: center;
+      }
+    }
+
+    .card-body{
+      text-align: center;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .buttons{
+      text-align: center;
+    }
+  }
+}
+
+.solicitudes-filtro{
+  background: transparent;
+  color: red;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 15px;
+
+  &.active{
+    background: rgba(150,150,150, .3);
+  }
+}
+
 .marquee{
   color: black;
-  width: 250px;
+  width: 325px;
   height: 200px;
   z-index: 1;
   animation-delay: 1.2s;
+
+  p{
+    margin-top: 2rem;
+  }
 
   a{
     text-decoration: none;
@@ -613,7 +759,12 @@ a{
     display: flex;
     justify-content: space-between;
 
+    .date{
+      margin-left: 1rem;
+    }
+
     .ruta{
+      margin-left: 1rem;
       width: 80%;
       text-align: left;
     }
@@ -710,7 +861,7 @@ a{
 }
 
 .bgbar{
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bgInfo{
@@ -719,6 +870,8 @@ a{
     top: 0;
     width: 100%;
     opacity: .3;
+    height: 125px;
+    object-fit: cover;
   }
 }
 

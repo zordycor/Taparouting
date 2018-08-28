@@ -99,7 +99,7 @@ class BaresController extends Controller
 
         if($bar->user_id === $user['id']){
             $bar->update($request->all());
-            return view('layouts.bar');
+            return redirect()->route('bar', ['id'=>$id]);
         }
     }
     /**
@@ -112,4 +112,26 @@ class BaresController extends Controller
     {
         //
     }
+
+    public function fav($id){
+      $bar = Bar::find($id);
+      $bar->toggleFavorite();
+
+      return true;
+    }
+
+    public static function favCount($id){
+      $bar = Bar::find($id);
+      return $bar->favoritesCount;
+    }
+
+    public static function getName($id){
+      $bar = Bar::find($id);
+      return $bar->nombre;
+    }
+
+  public static function getTapa($id){
+    $bar = Bar::find($id);
+    return $bar->tapanom;
+  }
 }

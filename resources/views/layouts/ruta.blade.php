@@ -93,10 +93,10 @@ function mapInit() {
         var address = "{{$bar->nombre}}, {{$bar->direccion}}"
 
         var content{{$bar->id}} = "<h1>{{$bar->nombre}}</h1>"+
-            "<div class='bgInfo'><img src='/img/CasaBayarri.jpg' alt=''></div>"+
-            "<p><b>{{$bar->tapanom}}</b></p>"+
-            "<p><b>{{$bar->direccion}}</b></p>"+
-            "<p><b><a href='/bar/{{$bar->id}}'>Más info.</a></b></p>";
+            "<div class='bgInfo'><img src='https://s3.eu-west-3.amazonaws.com/taparouting/tapas/{{ $bar->id }}.jpg' alt=''></div>"+
+            "<h3>{{$bar->tapanom}}</h3>"+
+            "<h4>{{$bar->direccion}}</h4>"+
+            "<h4><a class='infowindow_link' href='/bar/{{$bar->id}}'>Más info ></a></h4>";
 
         var infowindow = new google.maps.InfoWindow();
 

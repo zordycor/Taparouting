@@ -28,7 +28,7 @@
            </a>
            @endif
            @endforeach
-           <a href="/searchAll?search=rutas">Ver más...</a>
+           <p><a href="/searchAll?search=rutas">Ver más...</a></p>
        </div>
 
 

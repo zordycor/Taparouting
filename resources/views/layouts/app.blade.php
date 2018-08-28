@@ -25,13 +25,14 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        @if(!Auth::user()->role && !Request::is('rutacreate'))
+                        @if(Auth::user()->role == 0 && !Request::is('rutacreate'))
                             <a class="dropdown-item" href="/ruta/{{Auth::user()->rutaRelated()->localidad}}">Mi ruta</a>
+                            <a class="dropdown-item" href="/config">Panel de control</a>
                         @endif
-                        @if(Auth::user()->role && !Request::is('barcreate'))
+                        @if(Auth::user()->role == 1 && !Request::is('barcreate'))
                             <a class="dropdown-item" href="/bar/{{Auth::user()->barRelated()->id }}">Mi bar</a>
+                            <a class="dropdown-item" href="/config">Panel de control</a>
                         @endif
-                        <a class="dropdown-item" href="/config">Panel de control</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">

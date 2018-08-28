@@ -39,7 +39,7 @@ Route::get('/', function () {
 
 Route::get('/ruta/{localidad}/', function ($localidad) {
     $ruta = Ruta::where('localidad',$localidad)->first();
-    $bares = $ruta->related();
+    $bares = $ruta->related()->where('aceptado', 1);
     return view('layouts.ruta', compact('ruta', 'bares'));
 })->name('ruta');
 
@@ -53,16 +53,37 @@ Route::get('/config', function () {
     }
 
     if($user['role'] == '0'){
-        $ruta = DB::table('rutas')->where('user_id',$user->id)->first();
-        $bares = DB::table('bares')->where('ruta_id',$ruta->id)->where('aceptado',1)->get();
-        return view('layouts.rutaconfig', compact('user','ruta','bares'));
+      $ruta = DB::table('rutas')->where('user_id',$user->id)->first();
+      $bares = DB::table('bares')->where('ruta_id',$ruta->id)->get();
+      $favs = DB::table('favorites')->select('favoriteable_id')->distinct()->get();
+      $favsid = [];
+      foreach ($favs as $fav){
+        array_push($favsid, $fav->favoriteable_id);
+      }
+
+      return view('layouts.rutaconfig', compact('user','ruta','bares','favsid'));
     }
 });
 
 Route::get('/bar/{id}/', function ($id) {
-    $bar = DB::table('bares')->where('id',$id)->first();
+    $me = Auth::user();
+    $bar = Bar::where('id',$id)->first();
+    $users = $bar->favoritedBy();
+    $favorited = false;
+
+    if($users!=null){
+      $users = $users->toArray();
+
+      foreach($users as $k=>$v){
+        if($v['id']==$me['id']){
+          $favorited = true;
+          break;
+        }
+      }
+    }
+
     $ruta = DB::table('rutas')->where('id',$bar->ruta_id)->first();
-    return view('layouts.bar', compact('ruta', 'bar'));
+    return view('layouts.bar', compact('ruta', 'bar', 'favorited'));
 })->name('bar');
 
 
@@ -78,14 +99,14 @@ Route::post('/barstore/', 'BaresController@store')->name('barstore');
 Route::get('/rutacreate/', 'RutasController@create')->name('rutacreate');
 Route::post('/rutastore/', 'RutasController@store')->name('rutastore');
 
-Route::post('/togglefav/{id}/', function ($id){
-  $bar = DB::table('bares')->where('id',$id)->first();
-  $bar->addFavorite();
-});
-
 Auth::routes();
 
 Route::get('/dashboard/', 'DashboardController@index');
+
+Route::get('/togglefav/{id}', 'BaresController@fav');
+
+Route::get('/aceptar/{id}', 'RutasController@aceptarBar');
+Route::get('/denegar/{id}', 'RutasController@denegarBar');
 
 
 Route::get('/cleancache', function () {

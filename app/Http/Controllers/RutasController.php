@@ -117,4 +117,18 @@ class RutasController extends Controller
     {
         //
     }
+
+  public function aceptarBar($id){
+    $bar = Bar::find($id);
+    $bar->update(['aceptado' => 1]);
+
+    return true;
+  }
+
+  public function denegarBar($id){
+    $bar = Bar::find($id);
+    $bar->update(['aceptado' => 0]);
+
+    return true;
+  }
 }

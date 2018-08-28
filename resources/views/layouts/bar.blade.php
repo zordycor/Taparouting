@@ -9,7 +9,7 @@
             <div class="bg-row"></div>
             <div class="title">
                 <h1>
-                    @auth<a href="javascript:history.go(0)" onclick="favBar({{$bar->id}})"><i class="far fa-heart js-fav"></i></a>@endauth
+                    @auth<i class="@if($favorited) fas @else far @endif fa-heart js-fav" onclick="favBar({{$bar->id}})"></i>@endauth
                     {{ $bar->tapanom }}
                 </h1>
                 <h4><a href="/ruta/{{$ruta->localidad}}">{{$ruta->nombre}}</a></h4>
@@ -37,15 +37,10 @@
 
 <script>
 
-    $(document).ready(function(){
-        favBar();
-    });
-
-    function favBar($id) {
-        $('.js-fav').toggleClass('far','fas')
+    function favBar(id) {
+        $('.js-fav.far, .js-fav.fas').toggleClass('far fas');
         $.ajax({
-            url: '/togglefav/'+$id,
-            type: 'POST',
+            url: '/togglefav/'+id,
             success: function(result){
                 console.log(result);
             }

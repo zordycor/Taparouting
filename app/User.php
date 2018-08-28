@@ -8,21 +8,21 @@ use ChristianKuri\LaravelFavorite\Traits\Favoriteability;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+  use Notifiable;
   use Favoriteability;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'role','name', 'email', 'password'
-    ];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array
+   */
+  protected $fillable = [
+      'role','name', 'email', 'password'
+  ];
 
-    public function bar(){
-      return $this->belongsTo('App\Bar');
-    }
+  public function bar(){
+    return $this->belongsTo('App\Bar');
+  }
 
   public function barRelated(){
     $bar = \DB::table('bares')->where('user_id',$this->id)->first();

@@ -16,6 +16,10 @@ $(document).ready(function(){
         cancelTapa();
     });
 
+    if($(window).width() < 1240){
+        $('.rowForm').removeClass('rowForm');
+    }
+
 });
 
 function file(input){

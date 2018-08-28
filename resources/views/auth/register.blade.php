@@ -15,7 +15,7 @@
 <!--                            <input type="text" name="role" class="form-control {{ $errors->has('role') ? ' is-invalid' : '' }}" value="0">-->
                             <select id="role" name="role" class="form-control">
                                 <option value="2">Rutero</option>
-                                <option value="0">Ayuntamiento</option>
+                                <option value="0">Organizador</option>
                                 <option value="1">Bar</option>
                             </select>
                         </div>
