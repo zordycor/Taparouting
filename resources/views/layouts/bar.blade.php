@@ -1,6 +1,10 @@
 @extends('templates.master')
 @section('main')
 
+<style>
+    body {background-color:white !important;}
+</style>
+
 <div class="cont contBar">
     <a href="{{ URL::previous() }}"><i class="fas fa-angle-left"></i></a>
     <div class="firstBlock" unselectable="on">

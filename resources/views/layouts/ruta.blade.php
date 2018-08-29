@@ -1,5 +1,9 @@
 @extends('templates.master')
 @section('main')
+
+<style>
+    body {background-color:white !important;}
+</style>
 @php
     $conf=false;
 @endphp

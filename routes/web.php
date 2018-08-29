@@ -3,6 +3,7 @@
 use App\Ruta;
 use App\Bar;
 use App\User;
+use App\Favorite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,7 +56,13 @@ Route::get('/config', function () {
     if($user['role'] == '0'){
       $ruta = DB::table('rutas')->where('user_id',$user->id)->first();
       $bares = DB::table('bares')->where('ruta_id',$ruta->id)->get();
-      $favs = DB::table('favorites')->select('favoriteable_id')->distinct()->get();
+
+      $favs = DB::table('favorites')
+        ->select('favorites.favoriteable_id',DB::raw('COUNT(favoriteable_id) as count'))
+        ->groupBy('favoriteable_id')
+        ->orderBy('count', 'desc')
+        ->get();
+
       $favsid = [];
       foreach ($favs as $fav){
         array_push($favsid, $fav->favoriteable_id);
@@ -64,7 +71,7 @@ Route::get('/config', function () {
       $tab0 = $_GET['tab0'] ?? 0 ;
       $tab1 = $_GET['tab1'] ?? 0 ;
 
-      return view('layouts.rutaconfig', compact('user','ruta','bares','favsid', 'tab0', 'tab1'));
+      return view('layouts.rutaconfig', compact('user','ruta','bares','favsid', 'tab0', 'tab1','favs'));
     }
 });
 
