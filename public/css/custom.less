@@ -9,6 +9,26 @@
   animation: fade-slide-left .8s ease-out forwards;
 }
 
+@iterations: 12;
+.delay-loop (@i) when (@i > -1) {
+  .delay-@{i}-5s {
+    -webkit-animation-delay: ~"@{i}.5s";
+    animation-delay: ~"@{i}.5s";
+  }
+  .delay-loop(@i - 1);
+}
+.delay-loop (@iterations);
+
+@iterations: 12;
+.delay-loop (@i) when (@i > 5) {
+  .delay-@{i}s {
+    -webkit-animation-delay: ~"@{i}s";
+    animation-delay: ~"@{i}s";
+  }
+  .delay-loop(@i - 1);
+}
+.delay-loop (@iterations);
+
 .main-container{
   overflow: hidden;
   position: relative;

@@ -1,23 +1,18 @@
 <div class="buttons">
-    <button class="btn btn-success js-accept" onclick="acceptBar({{$bar->id}})">Aceptar</button>
-    <button class="btn btn-danger js-deny" onclick="denyBar({{$bar->id}})">Denegar</button>
+    <button class="btn btn-success js-accept @if($bar->aceptado == 1) disabled @endif" onclick="actionBar(1,{{$bar->id}})">Aceptar</button>
+    <button class="btn btn-danger js-deny @if($bar->aceptado == 0) disabled @endif" onclick="actionBar(0,{{$bar->id}})">Denegar</button>
 </div>
 
 <script>
-    function acceptBar(id){
+    function actionBar(action,id){
         $.ajax({
-            url: '/aceptar/'+id,
-            success: function(){
-                $('.cardList').hide(2000);
-            }
-        });
-    }
-
-    function denyBar(id){
-        $.ajax({
-            url: '/denegar/'+id,
+            url: '/action/'+action+'/'+id,
             success: function(result){
-                console.log(result);
+                if(result){
+                    var tab0 = $('#parentPills .nav-link.active').attr('data-num');
+                    var tab1 = $('#solicitudes .nav-link.active').attr('data-num');
+                    window.location.href = location.protocol + '//' + location.host + location.pathname + '?tab0='+ tab0 +'&tab1='+ tab1;
+                }
             }
         });
     }

@@ -1,4 +1,4 @@
-<div id="conf" class="tab-pane active">
+<div id="conf" class="tab-pane  @if($tab0 == 0) active show @else fade @endif">
   {!! Form::model($ruta, ['action' => ['RutasController@update', $ruta->id], 'files' => true]) !!}
   {{Form::token()}}
   <div class="rowForm">

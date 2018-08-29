@@ -61,7 +61,10 @@ Route::get('/config', function () {
         array_push($favsid, $fav->favoriteable_id);
       }
 
-      return view('layouts.rutaconfig', compact('user','ruta','bares','favsid'));
+      $tab0 = $_GET['tab0'] ?? 0 ;
+      $tab1 = $_GET['tab1'] ?? 0 ;
+
+      return view('layouts.rutaconfig', compact('user','ruta','bares','favsid', 'tab0', 'tab1'));
     }
 });
 
@@ -105,8 +108,7 @@ Route::get('/dashboard/', 'DashboardController@index');
 
 Route::get('/togglefav/{id}', 'BaresController@fav');
 
-Route::get('/aceptar/{id}', 'RutasController@aceptarBar');
-Route::get('/denegar/{id}', 'RutasController@denegarBar');
+Route::get('/action/{action}/{id}', 'RutasController@actionBar');
 
 
 Route::get('/cleancache', function () {

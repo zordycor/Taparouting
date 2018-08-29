@@ -1,8 +1,10 @@
 @if($conf)
 <div class="row row--cards">
     @if($filter == "all")
+    @php $count = -1; @endphp
     @foreach($bares as $bar)
-        <div class="cardList">
+    @php $count = ($count+1); @endphp
+        <div class="cardList js-cardList-{{ $bar->id }} animated fadeInLeft delay-{{ str_replace('.','-', ($count /2)) }}s">
             <div class="card-cont">
                 <a href="/bar/{{ $bar->id }}">
                     <div class="card-img">
@@ -24,9 +26,11 @@
     @endif
 
     @if($filter == "accept")
+    @php $count = -1; @endphp
     @foreach($bares as $bar)
     @if($bar->aceptado == 1)
-    <div class="cardList">
+    @php $count = ($count+1); @endphp
+    <div class="cardList js-cardList-{{ $bar->id }} animated fadeInLeft delay-{{ str_replace('.','-', ($count /2)) }}s">
         <div class="card-cont">
             <a href="/bar/{{ $bar->id }}">
                 <div class="card-img">
@@ -48,9 +52,11 @@
     @endif
 
     @if($filter == "deny")
+    @php $count = -1; @endphp
     @foreach($bares as $bar)
     @if($bar->aceptado == 0)
-    <div class="cardList">
+    @php $count = ($count+1); @endphp
+    <div class="cardList js-cardList-{{ $bar->id }} animated fadeInLeft delay-{{ str_replace('.','-', ($count /2)) }}s">
         <div class="card-cont">
             <a href="/bar/{{ $bar->id }}">
                 <div class="card-img">
@@ -74,9 +80,11 @@
 @endif
 
 @if(!$conf)
+@php $count = -1; @endphp
 <div class="row row--cards">
     @foreach($bares as $bar)
-        <div class="col-sm-4 card-full">
+    @php $count = ($count+1); @endphp
+        <div class="col-sm-4 card-full animated fadeIn delay-{{ str_replace('.','-', ($count /2)) }}s">
             <div class="card">
                 <a href="/bar/{{ $bar->id }}">
                     <div class="card-cont">
