@@ -94,6 +94,7 @@
 
                         <div class="card-body">
                             <h4 class="card-title"><strong>{{$bar->tapanom}}</strong></h4>
+<!--                            <i class="fas fa-trophy" style="color: gold;"></i>-->
                             <hr class="cardSeparator">
                             <p class="card-bar">{{$bar->nombre}}</p>
                             <p class="card-description">{{ $bar->tapadesc }}</p>

@@ -55,17 +55,28 @@ Route::get('/config', function () {
 
     if($user['role'] == '0'){
       $ruta = DB::table('rutas')->where('user_id',$user->id)->first();
-      $bares = DB::table('bares')->where('ruta_id',$ruta->id)->get();
+      $bares = Bar::where('ruta_id',$ruta->id)->get();
+
+      $baresIDs = $bares->where('id', '>', 0)->pluck('id')->toArray();
 
       $favs = DB::table('favorites')
         ->select('favorites.favoriteable_id',DB::raw('COUNT(favoriteable_id) as count'))
         ->groupBy('favoriteable_id')
         ->orderBy('count', 'desc')
-        ->get();
+        ->get('favoriteable_id');
+
+      $favorites = DB::table('favorites')
+        ->select('favorites.favoriteable_id',DB::raw('COUNT(favoriteable_id) as count'))
+        ->groupBy('favoriteable_id')
+        ->orderBy('count', 'desc')
+        ->pluck('favoriteable_id')
+        ->toArray();
 
       $favsid = [];
-      foreach ($favs as $fav){
-        array_push($favsid, $fav->favoriteable_id);
+      foreach ($favorites as $fav){
+        if(in_array($fav,$baresIDs)){
+          array_push($favsid,$fav);
+        }
       }
 
       $tab0 = $_GET['tab0'] ?? 0 ;
