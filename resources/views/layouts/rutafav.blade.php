@@ -1,4 +1,5 @@
 <?php use App\Http\Controllers\BaresController;?>
+
 <div class="votecont">
   <div class="chart">
     @foreach($favsid as $fav)
@@ -10,12 +11,13 @@
     @endforeach
   </div>
 
-  <button class="btn btn-success" onclick="publish()">Publicar ganadores</button>
+  <button class="btn btn-success" onclick="setPublish()">Publicar ganadores</button>
 </div>
 
 <script>
-    public function publish(){
-        var barID = $('.chartPosition0 a').attr('href').substr(5);
 
+
+    function setPublish(){
+        $publish = true;
     }
 </script>

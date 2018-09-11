@@ -1,6 +1,6 @@
 @extends('templates.master')
 @section('main')
-
+<?php use App\Http\Controllers\BaresController;?>
 <style>
     body {background-color:white !important;}
 </style>
@@ -25,11 +25,19 @@
                     {{ date('M', strtotime($ruta->fin)) }}
                 </h4>
 
+                @if(!$publish)
                 <div class="prizes">
                     <div class="greyBack"><i class="fas fa-trophy" style="color: yellow;"></i> {{ $ruta->price1 }}€</div>
                     <div class="greyBack greyBack--silver"><i class="fas fa-trophy" style="color: silver;"></i> {{ $ruta->price2 }}€</div>
                     <div class="greyBack greyBack--bronze"><i class="fas fa-trophy" style="color: saddlebrown;"></i> {{ $ruta->price3 }}€</div>
                 </div>
+                @else
+                <div class="winners">
+                    <div class="greyBack"><i class="fas fa-trophy" style="color: yellow;"></i> {{ $ruta->price1 }}€<span class="chartPosition"><a href="/bar/{{ $favsid[0] }}">{{ BaresController::getName($favsid[0]) }} y su tapa "{{BaresController::getTapa($favsid[0])}}"</a></span></div>
+                    <div class="greyBack greyBack--silver"><i class="fas fa-trophy" style="color: silver;"></i> {{ $ruta->price2 }}€<span class="chartPosition"><a href="/bar/{{ $favsid[1] }}">{{ BaresController::getName($favsid[1]) }} y su tapa "{{BaresController::getTapa($favsid[1])}}"</a></span></div>
+                    <div class="greyBack greyBack--bronze"><i class="fas fa-trophy" style="color: saddlebrown;"></i> {{ $ruta->price3 }}€<span class="chartPosition"><a href="/bar/{{ $favsid[2] }}">{{ BaresController::getName($favsid[2]) }} y su tapa "{{BaresController::getTapa($favsid[2])}}"</a></span></div>
+                </div>
+                @endif
             </div>
         </div>
 

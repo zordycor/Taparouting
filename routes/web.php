@@ -39,9 +39,32 @@ Route::get('/', function () {
 });
 
 Route::get('/ruta/{localidad}/', function ($localidad) {
-    $ruta = Ruta::where('localidad',$localidad)->first();
-    $bares = $ruta->related()->where('aceptado', 1);
-    return view('layouts.ruta', compact('ruta', 'bares'));
+  $ruta = Ruta::where('localidad',$localidad)->first();
+  $bares = $ruta->related()->where('aceptado', 1);
+
+  $baresIDs = $bares->where('id', '>', 0)->pluck('id')->toArray();
+
+  $favs = DB::table('favorites')
+    ->select('favorites.favoriteable_id',DB::raw('COUNT(favoriteable_id) as count'))
+    ->groupBy('favoriteable_id')
+    ->orderBy('count', 'desc')
+    ->get('favoriteable_id');
+
+  $favorites = DB::table('favorites')
+    ->select('favorites.favoriteable_id',DB::raw('COUNT(favoriteable_id) as count'))
+    ->groupBy('favoriteable_id')
+    ->orderBy('count', 'desc')
+    ->pluck('favoriteable_id')
+    ->toArray();
+
+  $favsid = [];
+  foreach ($favorites as $fav){
+    if(in_array($fav,$baresIDs)){
+      array_push($favsid,$fav);
+    }
+  }
+
+    return view('layouts.ruta', compact('ruta', 'bares', 'fav','favsid'));
 })->name('ruta');
 
 Route::get('/config', function () {
